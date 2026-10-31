@@ -1,0 +1,4 @@
+# Installed dependencies and generated frontend output
+node_modules/
+dist/
+*.tsbuildinfo

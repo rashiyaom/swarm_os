@@ -1,0 +1,41 @@
+# Swarm Mission Control
+
+React, TypeScript and Three.js frontend with a standalone browser swarm simulator.
+The source, simulation engine, tests, dependency lockfile and Vite server configuration
+are in `frontend/`.
+
+## Run locally
+
+Install Node.js 18 or newer, then run from the repository root:
+
+```sh
+npm ci --prefix frontend
+npm run dev
+```
+
+Open the local URL printed by Vite (normally http://localhost:5173).
+The default heuristic simulator runs in the browser without a Python server.
+
+```sh
+npm test          # Simulation and frontend tests
+npm run build    # Type-check and generate frontend/dist
+npm run preview  # Serve the built app locally
+```
+
+Dependencies, build output and TypeScript caches stay ignored by Git.
+Edit `frontend/src/` and rebuild to update the app.
+
+## Optional services
+
+- **PPO:** Vite forwards `/api/ppo` to `http://127.0.0.1:8765` during development.
+  The Python service (`backend/ppo_service.py`), its simulation/training dependencies
+  and the compatible trained checkpoint are absent from the available branches.
+  PPO missions require restoring those original artifacts; the browser does not
+  substitute heuristic actions for a missing policy.
+- **ROS:** Connecting to robots requires an external rosbridge WebSocket server,
+  normally on port 9090. Browser simulation does not require ROS.
+
+Vite's production preview server does not provide the development API proxy.
+A production deployment using PPO must route `/api/ppo` to that service separately.
+
+See [frontend instructions](frontend/README.md) for controls and simulation details.
