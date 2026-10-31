@@ -2,3 +2,10 @@
 node_modules/
 dist/
 *.tsbuildinfo
+
+# Python caches and ROS 2 colcon output
+__pycache__/
+*.py[cod]
+simulation/ros2_ws/build/
+simulation/ros2_ws/install/
+simulation/ros2_ws/log/
