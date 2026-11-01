@@ -1,0 +1,81 @@
+{
+  "checks": [
+    "header and essential controls fit eight viewport sizes"
+  ],
+  "contrast_failures": {
+    "mission": [],
+    "fleet": [],
+    "activity": [],
+    "controls": [],
+    "layers": [],
+    "explain": [],
+    "story_navigation": [],
+    "selected_fleet": [],
+    "audio": [],
+    "map_editor": [],
+    "survivor_story": [],
+    "dossier": [],
+    "selected_survivor_report": [],
+    "gnn": [],
+    "ros": []
+  },
+  "js_errors": [],
+  "date": "2026-11-01",
+  "viewport_sizes": [
+    [
+      1920,
+      1080
+    ],
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      800
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      900,
+      650
+    ],
+    [
+      768,
+      600
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      320,
+      700
+    ]
+  ],
+  "frontend_tests_passed": 179,
+  "production_build": "passed",
+  "additional_checks": [
+    "light/mobile screenshots",
+    "persisted theme",
+    "light print scheme"
+  ],
+  "contrast_scope": "Computed foreground/background contrast on sampled HTML text in listed workspaces; disabled controls and SVG/WebGL excluded. Not a complete accessibility certification.",
+  "captured_at_utc": "2026-11-01T02:56:29.788118+00:00",
+  "screenshots": [
+    {
+      "file": "desktop-dark.png",
+      "sha256": "f3f43f3eb6b1400d05c8552d64cbc17b85f3fb73153f36841e7c0aba5fb627e8"
+    },
+    {
+      "file": "desktop-light.png",
+      "sha256": "12ff3f1a51117eb7b65b8c1699fe49f7c91e3cf65d545380510b5235f5d93920"
+    },
+    {
+      "file": "mobile-light.png",
+      "sha256": "48d01834332e0ce0a131236a0c095fc911b0917fae6de53e01e4096611f251a6"
+    }
+  ]
+}

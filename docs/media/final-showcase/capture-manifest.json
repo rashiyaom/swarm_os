@@ -1,0 +1,39 @@
+{
+  "captured_at_utc": "2026-11-01T02:28:59.838536+00:00",
+  "source_commit": "796315f33c66bd8dbaf12a31d56bfa3070921dcd",
+  "method": "Unedited Chrome/Playwright screenshots of running browser simulation",
+  "captures": [
+    {
+      "file": "map-editor.png",
+      "scope": "Actual map drawing editor with protected boundary/start/survivor cells, before editing; browser mission.",
+      "viewport": {
+        "width": 1512,
+        "height": 982
+      },
+      "sha256": "fbe46faeff3c31232c673da92e1de77545ea36b166d2b6e4f64a215c9891e36c"
+    },
+    {
+      "file": "routes-3d.png",
+      "scope": "Actual computed rescue routes over the completed browser mission; route suggestions derived from merged beliefs, not field validation.",
+      "viewport": {
+        "width": 1800,
+        "height": 1000
+      },
+      "sha256": "a75c7eb4363735168794f31a81005e68c259f4b27a59abea0b508bbf4234f89d"
+    },
+    {
+      "file": "route-card.png",
+      "scope": "Selected survivor extraction card with actual computed route and navigation from the simulated mission.",
+      "viewport": {
+        "width": 1800,
+        "height": 1000
+      },
+      "sha256": "e5b1bd0736e6857440eb136a948c33bd3d44a504ecb8e6d80d42bbcc1c109828"
+    },
+    {
+      "file": "survivor-story.png",
+      "scope": "Actual first survivor discovery pause, fictional conversation; captured during the same local integration QA.",
+      "sha256": "1c91678657ff5ad538f6371c2dab69226e771b251e871572c3819fe2fe47f95c"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "captured_at_utc": "2026-11-01T01:59:19.816428+00:00",
+  "source_commit": "be57fd439905a1968c69fad0822f2fecacef22af",
+  "method": "Unedited screenshots of local running app, headless Chrome, Playwright; software WebGL",
+  "public_demo": "https://circuits-recognized-emily-paul.trycloudflare.com/",
+  "captures": [
+    {
+      "file": "mission-light.png",
+      "url": "http://127.0.0.1:5192/",
+      "scope": "Current browser heuristic workspace, ready state; original official logo.",
+      "theme": "light",
+      "viewport": {
+        "width": 1512,
+        "height": 982
+      },
+      "sha256": "2ca498e7f70066f7b38d0704089d8e98e1bc2931de9613e565aae6d5efa0d88e"
+    },
+    {
+      "file": "mission-dark.png",
+      "url": "http://127.0.0.1:5192/",
+      "scope": "Same browser workspace in dark chrome; authored world colors retained.",
+      "theme": "dark",
+      "viewport": {
+        "width": 1512,
+        "height": 982
+      },
+      "sha256": "0e80126812c5e90e29076081b8acc56cd7793aa460b0d7514167564e5abe67aa"
+    },
+    {
+      "file": "explain-dark.png",
+      "url": "http://127.0.0.1:5192/",
+      "scope": "Interactive teaching story and live browser sandbox; no ROS session.",
+      "theme": "dark",
+      "viewport": {
+        "width": 1512,
+        "height": 982
+      },
+      "sha256": "368df26aaba1259ccb9d60a2d2d5aa145b9e41a67e6f3d5920c9be33da5cc55b"
+    },
+    {
+      "file": "explain-mobile.png",
+      "url": "http://127.0.0.1:5192/",
+      "scope": "Actual responsive Explain guide in light mode at mobile viewport.",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "sha256": "a3aa7a2f30f7dc8b2a18919cc34e3cbd42a9f77c03f42b89d351ab648833b7ee"
+    },
+    {
+      "file": "observatory-map.png",
+      "url": "http://127.0.0.1:5192/?mode=observatory",
+      "scope": "Paused running browser mission with actual private occupancy and simulated poses; not live ROS SLAM.",
+      "theme": "light",
+      "viewport": {
+        "width": 1512,
+        "height": 982
+      },
+      "sha256": "cca7846bbe4031d11fdbc2f65300cedd2575241c3201e119414c3dca2c56d7c8"
+    },
+    {
+      "file": "observatory-network.png",
+      "url": "http://127.0.0.1:5192/?mode=observatory",
+      "scope": "Actual browser simulator peer topology; not neural attention.",
+      "theme": "light",
+      "viewport": {
+        "width": 1512,
+        "height": 982
+      },
+      "sha256": "3ecf409a0f1e5e7a8f69aeabb760f269913aa488bf0bfcd6def2937b75b3d513"
+    },
+    {
+      "file": "gnn-concept.png",
+      "url": "http://127.0.0.1:5192/?mode=observatory",
+      "scope": "Explicitly labeled teaching illustration with authored example attention; does not execute the experimental GNN policy.",
+      "theme": "light",
+      "viewport": {
+        "width": 1512,
+        "height": 982
+      },
+      "sha256": "f47c6845dbcb2e185049bc2daa9ba0060798f3690f9eb754ab40dc4a6fce23e2"
+    }
+  ],
+  "browser_errors": []
+}

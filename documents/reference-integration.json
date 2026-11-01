@@ -1,0 +1,1007 @@
+{
+  "date": "2026-11-01",
+  "reference_repository": "https://github.com/rashiyaom/swarm-sar",
+  "reference_commit": "100a6c0313eefc7e88147f950d852e67a6c8316b",
+  "method": "Downloaded a GitHub archive and copied files; no pull, fetch, merge, commit, or push.",
+  "branch": "integrate/reference-missing-features",
+  "baseline": {
+    "reference_files": 1474,
+    "identical_on_disk": 1230,
+    "missing_on_disk": 220,
+    "different_on_disk": 24
+  },
+  "added": [
+    {
+      "path": ".dockerignore",
+      "sha256": "1c0f707c5463e4973dfb9113beaa247c44bcbe2282fdb6e8a660ef61079d046d"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "e58a8bc341f91a6de8cebeb7e55282824e8839c67c13429983768185df9b56d4"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "ea5992a01a9b4ab6469b126504f901f29c901ddfade05a155446f486fbab4ac6"
+    },
+    {
+      "path": "detailed_approach.md",
+      "sha256": "37331ea863b74100156d303da5dc9dd6a25278bd53c4cff941df111c141074ba"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "68bbe86bf35937de99f978e6dee79297fba88f3db536b773936df2707303d049"
+    },
+    {
+      "path": "docs/architecture/architecture.md",
+      "sha256": "7ef6856a4f6508ba1370c5ed43a92be401b14c1f84af1eb923160b17108822ee"
+    },
+    {
+      "path": "docs/architecture/gpu_architecture_review.md",
+      "sha256": "73dae1e605b3c4502d036d8eba63b41d45063352edbdbdb1d689795b6e4fe34b"
+    },
+    {
+      "path": "docs/audits/engineering_audit.md",
+      "sha256": "e3673d4a286e1563950a6942f574ce3ba7cddc7ed0fa08c7ccaf18e94f40fef2"
+    },
+    {
+      "path": "docs/audits/frontend_layout_theme.md",
+      "sha256": "2d99a9f4c3e7908e692b99c5a4ac8d1ca9f6154fb907f4f61f92cd7ef55f66f8"
+    },
+    {
+      "path": "docs/audits/frontier_utility_ablation.md",
+      "sha256": "e93b79614efb61e12284449127df21d0a349325a2caef08ef1da7b691f5f94a1"
+    },
+    {
+      "path": "docs/audits/frozen_discovery_baselines.md",
+      "sha256": "9e49e6a71f4e8a271b86e36e346b6f7ea64f8e6b3ad96afba9b72f81d59c664f"
+    },
+    {
+      "path": "docs/audits/gnn_implementation_validation.md",
+      "sha256": "3a5599b16a242ae57009e79a8cb85c61d8a82861c96d41cde16e5280fc4a099c"
+    },
+    {
+      "path": "docs/audits/goal_governor_ablation.md",
+      "sha256": "33843948c0b91d1adbaf0130514917915d24c25fa664c455974c1280631a4f86"
+    },
+    {
+      "path": "docs/audits/hackathon_readiness_audit.md",
+      "sha256": "0ce195552e5609a091a7d733de4173ac379ac3d0a032206c7dd7d485d02bd0e3"
+    },
+    {
+      "path": "docs/audits/large_map_failure_diagnosis.md",
+      "sha256": "a825038df2db402016f613c25a64d266a784a601a841e037291533b3ec7a268b"
+    },
+    {
+      "path": "docs/audits/observatory_redesign.md",
+      "sha256": "6ac34bb680a5cc7aa14fd227a8c1dae6af0246195fffbf6bdff9e78067e81e13"
+    },
+    {
+      "path": "docs/audits/ros_branch_pr_audit.json",
+      "sha256": "32fd438a1077bf28a610ce19ef19edbb26f3eb91146f0804fbd40be2214ecf93"
+    },
+    {
+      "path": "docs/audits/ros_branch_pr_audit.md",
+      "sha256": "1f87ccb465bad2fba3a35890f33831783e45032e7720f0a8f47b6d5b7fcbb8c2"
+    },
+    {
+      "path": "docs/audits/slam_local_validation.md",
+      "sha256": "c11cdd22232d0239671ac80388713f3501d5cf4f4de97c4646852ce0ca648e02"
+    },
+    {
+      "path": "docs/audits/step1_validation.md",
+      "sha256": "415cc01f030176dffe44ef8d6455d5b644e111bf794535d4df2716f0b9e77d5b"
+    },
+    {
+      "path": "docs/audits/step25_scalability.md",
+      "sha256": "7d0427eff0e8dc51426baea558dc79fd1c189a700f1d1c7c9078bd23f53ece88"
+    },
+    {
+      "path": "docs/audits/step2_freeze_audit.md",
+      "sha256": "55b73a24a91a5b556dc2fe048a2a3f7cd62a8f517a6f18ae674c402f19d120cf"
+    },
+    {
+      "path": "docs/audits/step2_validation.md",
+      "sha256": "5c4da8528f0cc96997e6f9dfb6a0f7e95df7f0881e317a76fe922aecb42105b9"
+    },
+    {
+      "path": "docs/audits/step3_validation.md",
+      "sha256": "99d5dd94910cfb851a5646af85add37e852d2894ecf0c4858d60a1ae271bea5f"
+    },
+    {
+      "path": "docs/audits/step4_validation.md",
+      "sha256": "7bfa6b1b4735878e55b0fee25da90e26174b2f42327cafe678c9408bcf9454c9"
+    },
+    {
+      "path": "docs/audits/step5_integration.md",
+      "sha256": "54ff0b7e713aea1b0025aef635af91135589e86c77a71d64cccde6c5a12fbfca"
+    },
+    {
+      "path": "docs/audits/visibility_diversity_ablation.md",
+      "sha256": "d800756b9c0d9f8c8016f679ff371f1f93ec397bf0adf080d1d6db8947fb0c16"
+    },
+    {
+      "path": "docs/audits/workspace_and_fieldbook_update.md",
+      "sha256": "248426cb80e87317b57d0704811c70eaa4118f9a4cd1a04ae49521651d62ffb4"
+    },
+    {
+      "path": "docs/benchmarks/README.md",
+      "sha256": "1551a09aa0e9915971449472ed6fadcbddc3eacfc31f2c16932958b669317164"
+    },
+    {
+      "path": "docs/benchmarks/large_map_development_v1.json",
+      "sha256": "3a31d9992f495c065616dda679b38f68d718aea1181f80869e631da7d10c0c84"
+    },
+    {
+      "path": "docs/benchmarks/large_map_development_v1.lock.json",
+      "sha256": "45b9be5f4d8a76fa40b439b1b8d4aacc87261fb9be16780e34c38009c4aa56f3"
+    },
+    {
+      "path": "docs/branches.md",
+      "sha256": "4e129b14f3b7a5a7991c993925d8456ca01222b8125fd788981cb2fa101d92c8"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/build.log",
+      "sha256": "bf2dc086fcb8a003e54889aa2b3d262adb5caad40e281d7aacf554669c10e7f9"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/entities.txt",
+      "sha256": "089a1594647fb24c7ac22232a542b794b499ee5bcb721a562f053b51d27242bd"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/helper-tests.txt",
+      "sha256": "807a2a2dc0be1e626009e5f714ddab5f7874e92e516b0ec72d5ac5a106ed6622"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/pair-corrected-launch.log",
+      "sha256": "d6214603050ae0916436f28d3cf3877f8937c7c64af92abb9c13ec2dd16d75c6"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/pair-corrected-probe.json",
+      "sha256": "4857681e2fa5b16b7b93f410eac41b8397c81a85d063595b8db0635db635cb1f"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/pair-launch.log",
+      "sha256": "1e0b465e452ebf699e8a0033845f63304241db99d923e82399f5e0c6928a5ea4"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/pair-probe.json",
+      "sha256": "2f6d2548586c9bda8dcaa99f6e6ae4db8ea9b456de2ec2ae63211c309c217a9b"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/pair-software-launch.log",
+      "sha256": "0ec46a43fcbafc73e3cbb3892aa532b2606c63d066380955cac929a41ffa65ac"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/pair-software-probe.json",
+      "sha256": "93a6948dc21db8a76c16664c7d075e68019b9a4bfb6dc21573b615f4774c7450"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/restart-probe.json",
+      "sha256": "770f356bb11978c5c5e161898de4ce4bf00e79f72188ffff864a42fa0d5f3b9d"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/logs/static-tests.txt",
+      "sha256": "02ad842418c91d91ebf37e86ea6c7184bf437ca8aa148c3f497a3014ef3b6ce7"
+    },
+    {
+      "path": "docs/evidence/2026-10-28/screenshots/README.md",
+      "sha256": "4b24c9ec610702a5572b9da39f67f67904f8f4b55dbac9bf5216948acc4578c4"
+    },
+    {
+      "path": "docs/evidence/physics-demo/README.md",
+      "sha256": "0770d9fe92f4bef16856d763d725ed1acaabae4c4ba53744d6803b716a25a1bf"
+    },
+    {
+      "path": "docs/evidence/physics-demo/all-vehicle-encounters-final.txt",
+      "sha256": "37148267f1da190fd518cdabddd4105f6500d3bbccc9c5ff47c71b35fac29d4d"
+    },
+    {
+      "path": "docs/evidence/physics-demo/all-vehicle-encounters.txt",
+      "sha256": "a95a0d166ee2caa64b3ee9207a4cb42f5cd13f0429b9f59db2673b20f3b256eb"
+    },
+    {
+      "path": "docs/evidence/physics-demo/build.txt",
+      "sha256": "d09a43026a9431308bc9d7bc4aaec6e86b33c101f588615b81454f8be0e6a88d"
+    },
+    {
+      "path": "docs/evidence/physics-demo/corrected-flight.json",
+      "sha256": "e1a7edfec46fc4ca8ff0f1b67c03a9a8211dcddab4b7d15ff8aafa0271c78143"
+    },
+    {
+      "path": "docs/evidence/physics-demo/entities.txt",
+      "sha256": "34e04e15ebd9e170c0bf77d3d857211325e08c3e51b2e891c8f7cb0025d6da3d"
+    },
+    {
+      "path": "docs/evidence/physics-demo/final-motion.json",
+      "sha256": "1e3f0a7bfc0cf49a1f13dce0b79ec7ff821d3b18c3d140c02fcfaa821deef266"
+    },
+    {
+      "path": "docs/evidence/physics-demo/first-flight.json",
+      "sha256": "141d5084b252ad61e69f0195a6b02bd6b2b80ee8e1ede5bd62dd334ccfd0cfa8"
+    },
+    {
+      "path": "docs/evidence/physics-demo/follow-camera.txt",
+      "sha256": "db902f6d077f33ff3908ca7dc0b10b62508ab115257730ad0b2966080318d1b4"
+    },
+    {
+      "path": "docs/evidence/physics-demo/overview-camera.txt",
+      "sha256": "112f150347b33f7c1a574f1d10223af0d69d3fb6e56fa57746b558665baae6b0"
+    },
+    {
+      "path": "docs/evidence/physics-demo/rover-controller.log",
+      "sha256": "dc06c6b0af675ca484c211a3b5579ba5c64689f2015060a5f837379f9ecd3cc0"
+    },
+    {
+      "path": "docs/evidence/physics-demo/steady-motion.json",
+      "sha256": "c02fd9eb475636e0c14087c6810037c737798729bdc8714eb7e818da4bb66dd2"
+    },
+    {
+      "path": "docs/evidence/physics-demo/survivor-encounter-verified.txt",
+      "sha256": "1e5880bc021a80ab410b8c86b4264b3a8207f823931247325db0c4e076a64709"
+    },
+    {
+      "path": "docs/evidence/physics-demo/survivor-encounter.txt",
+      "sha256": "9d7cdc4d7a462ba387289149dd366b403c14f9fadb7e67ed5568bca0359e0d24"
+    },
+    {
+      "path": "docs/evidence/physics-demo/tests.txt",
+      "sha256": "3bc08b8f59a5c2f357357dce3ec1ec615f5a3957299edec286b7e4bb4f380538"
+    },
+    {
+      "path": "docs/gallery.md",
+      "sha256": "ce2d9bd6307d014beed788b55b8a999c7e3cbf18f305e24cbd1a9a33ac4c451f"
+    },
+    {
+      "path": "docs/guides/GPU_TRANSFER_CHECKLIST.md",
+      "sha256": "6e7b1934c92697c2a5643a8f64ef52bd7b8f35421e1c0c33e9071e4772b7dfdc"
+    },
+    {
+      "path": "docs/guides/LINUX_SLAM_VALIDATION_PROMPT.md",
+      "sha256": "4f337d40fcbec352a97ea08e6d8a5a6f58a16b334efea368801f49778c51139c"
+    },
+    {
+      "path": "docs/guides/explain_mode.md",
+      "sha256": "6839fa3cf86a54e0177d7b1bc7c56cd3c67a83d37294c2e060918c2ce7343cc8"
+    },
+    {
+      "path": "docs/guides/gnn_concept_demo.md",
+      "sha256": "2396d322d8498e51958eed61713801b5d3bd00f2bdb51bc06591daa69f5b5c6c"
+    },
+    {
+      "path": "docs/guides/gpu_training_preparation.md",
+      "sha256": "7d2a2d6f8290c366be521337de049ac5e9816165149e74c729bc502087fc6f41"
+    },
+    {
+      "path": "docs/guides/physics_demo.md",
+      "sha256": "27b22a2ef39313a825a8bf4cd0ffdae17976003c44bc31bdb2686042cc53a5d0"
+    },
+    {
+      "path": "docs/guides/ppo_demo.md",
+      "sha256": "e62ef56ca998294a532f672b4dffc3265f735aa3541a8028df6da3402abb0d38"
+    },
+    {
+      "path": "docs/guides/ppo_frontend_integration.md",
+      "sha256": "00621e2d4ac6f779d7ee33a8ef3068223f1b03bc057dabacbe3d7478fbd77f93"
+    },
+    {
+      "path": "docs/guides/render_deployment.md",
+      "sha256": "327b832bffb6ff35a36f0282654d63f823a2e32add737804881cd9f7105a43c5"
+    },
+    {
+      "path": "docs/guides/rescue_dossier.md",
+      "sha256": "1af1a55bbc4d9e5f4216f6eed13ec8fb813014de53ec2bcd51813a2b95d11191"
+    },
+    {
+      "path": "docs/guides/ros2_gazebo.md",
+      "sha256": "bb290240341cea5e1915e978a9628fa004ec61cab94b82670f9120c59741a732"
+    },
+    {
+      "path": "docs/guides/slam_integration.md",
+      "sha256": "0a1072b218f0b3852744d3a4b31af85cbf6a594df352ceaa4ec803ddd02cc621"
+    },
+    {
+      "path": "docs/guides/swarm_observatory.md",
+      "sha256": "3792cdd029dfa5f10627d00d9f1c6f5d9094417127648437005f973d3a758723"
+    },
+    {
+      "path": "docs/guides/validation_commands.md",
+      "sha256": "4c42f0098d152489eed2c2a3056911e21070b1965cea815dc967c624ff9b0bbe"
+    },
+    {
+      "path": "docs/guides/windows_public_hosting.md",
+      "sha256": "0fba61b0fbdf0c30795466b424ffe3251e96729d0bd4413d69aa301469eaa7cc"
+    },
+    {
+      "path": "docs/media/final-showcase/capture-manifest.json",
+      "sha256": "0b70e4d7200c020c214888892b7e867f27170169f31009c0544b609591fc0da2"
+    },
+    {
+      "path": "docs/media/final-showcase/map-editor.png",
+      "sha256": "fbe46faeff3c31232c673da92e1de77545ea36b166d2b6e4f64a215c9891e36c"
+    },
+    {
+      "path": "docs/media/final-showcase/route-card.png",
+      "sha256": "e5b1bd0736e6857440eb136a948c33bd3d44a504ecb8e6d80d42bbcc1c109828"
+    },
+    {
+      "path": "docs/media/final-showcase/routes-3d.png",
+      "sha256": "a75c7eb4363735168794f31a81005e68c259f4b27a59abea0b508bbf4234f89d"
+    },
+    {
+      "path": "docs/media/final-showcase/survivor-story.png",
+      "sha256": "1c91678657ff5ad538f6371c2dab69226e771b251e871572c3819fe2fe47f95c"
+    },
+    {
+      "path": "docs/media/frontend/apartment-team.png",
+      "sha256": "53326257b6d67cc0ef8ea399c047870fddac4c175df19a5b3bfc697bf377257f"
+    },
+    {
+      "path": "docs/media/frontend/capture-manifest.json",
+      "sha256": "afca3f24bc5d508d40b6a5a135513ba64ee8a25353323b55baa6d4182e0ce5f2"
+    },
+    {
+      "path": "docs/media/frontend/mine-team.png",
+      "sha256": "f4908de5eed0a7fe9b7108ca16efb5dfe5e38a87d75bee1f7963b8d6ff84f239"
+    },
+    {
+      "path": "docs/media/frontend/mission-live.gif",
+      "sha256": "db8d6b14575ba7d59d6a422cfbee915f0b603dae44f2484b16e6e3c883124837"
+    },
+    {
+      "path": "docs/media/frontend/office-fleet.png",
+      "sha256": "126d375d3ba54c6945f1ac05b08ae0e4d624831849faa44173e6812628e7a891"
+    },
+    {
+      "path": "docs/media/frontend/office-overview.png",
+      "sha256": "1ee4b0bfaa7b543d1448a414788152d3832e85c4660031b89011f1b0d4be9a3c"
+    },
+    {
+      "path": "docs/media/frontend/ppo-completed.png",
+      "sha256": "3b6a36f6a89fa47e1ccc1cc290910d8a4240347b84927080202744a7f48235d3"
+    },
+    {
+      "path": "docs/media/interface-polish/desktop-dark.png",
+      "sha256": "f3f43f3eb6b1400d05c8552d64cbc17b85f3fb73153f36841e7c0aba5fb627e8"
+    },
+    {
+      "path": "docs/media/interface-polish/desktop-light.png",
+      "sha256": "12ff3f1a51117eb7b65b8c1699fe49f7c91e3cf65d545380510b5235f5d93920"
+    },
+    {
+      "path": "docs/media/interface-polish/mobile-light.png",
+      "sha256": "48d01834332e0ce0a131236a0c095fc911b0917fae6de53e01e4096611f251a6"
+    },
+    {
+      "path": "docs/media/ppo_754k_seed10000.gif",
+      "sha256": "273a913916618b0c44cfa7c80777b03941868d1340e668aab3854cfc1e695400"
+    },
+    {
+      "path": "docs/media/readme-2026-11-01/capture-manifest.json",
+      "sha256": "e483979007480520293d036a0e4dee139b1fb906d9af06b9ab15c1931de9c3bd"
+    },
+    {
+      "path": "docs/media/readme-2026-11-01/explain-dark.png",
+      "sha256": "368df26aaba1259ccb9d60a2d2d5aa145b9e41a67e6f3d5920c9be33da5cc55b"
+    },
+    {
+      "path": "docs/media/readme-2026-11-01/explain-mobile.png",
+      "sha256": "a3aa7a2f30f7dc8b2a18919cc34e3cbd42a9f77c03f42b89d351ab648833b7ee"
+    },
+    {
+      "path": "docs/media/readme-2026-11-01/gnn-concept.png",
+      "sha256": "f47c6845dbcb2e185049bc2daa9ba0060798f3690f9eb754ab40dc4a6fce23e2"
+    },
+    {
+      "path": "docs/media/readme-2026-11-01/mission-dark.png",
+      "sha256": "0e80126812c5e90e29076081b8acc56cd7793aa460b0d7514167564e5abe67aa"
+    },
+    {
+      "path": "docs/media/readme-2026-11-01/mission-light.png",
+      "sha256": "2ca498e7f70066f7b38d0704089d8e98e1bc2931de9613e565aae6d5efa0d88e"
+    },
+    {
+      "path": "docs/media/readme-2026-11-01/observatory-map.png",
+      "sha256": "cca7846bbe4031d11fdbc2f65300cedd2575241c3201e119414c3dca2c56d7c8"
+    },
+    {
+      "path": "docs/media/readme-2026-11-01/observatory-network.png",
+      "sha256": "3ecf409a0f1e5e7a8f69aeabb760f269913aa488bf0bfcd6def2937b75b3d513"
+    },
+    {
+      "path": "docs/media/rescue-dossier/desktop-dark.png",
+      "sha256": "f4befecdd3544533bb3d4d776162dcf26e6029c5c54323b3744d1375eafd7b97"
+    },
+    {
+      "path": "docs/media/rescue-dossier/desktop-light.png",
+      "sha256": "b7402c23346dabaf871ff2b356ac5280ce963bb89bdd61e400a60f367c4939aa"
+    },
+    {
+      "path": "docs/media/rescue-dossier/mobile-dark.png",
+      "sha256": "dadb51e352bea1c55d081a2528aac74e35500cf2dc092077eaf861cd652932ec"
+    },
+    {
+      "path": "docs/media/rviz-map-sequence.gif",
+      "sha256": "2958a6d9c56c0db7dda1cd23664b436517245a8d3a3e5d120295a714a8acc852"
+    },
+    {
+      "path": "docs/media/rviz-map-sequence.json",
+      "sha256": "2766ff788fbc09700eef05d248dfc3a2bd0d7288fccd003916dea1bc13e85d3e"
+    },
+    {
+      "path": "docs/media/simulation-screenshots.zip",
+      "sha256": "b92975500dfb359a4f017147332d28c9a0c8fd07269825a24a2c188337a63f60"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/01-gazebo.png",
+      "sha256": "48166ec9a0365b630074c3ca39af734b519fd771f429f63492dd8765f895835a"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/02-rviz.png",
+      "sha256": "a8e8fceba42ef702dc54102dadab18487d963d22dfa2045f57f5178515120575"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/03-gazebo-overview.png",
+      "sha256": "527ad0b03e5e49c96bca8840e068f90f25b9d4b421185e2c8bfe39e1b36be8c7"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/04-rviz-progress.png",
+      "sha256": "cd22ddc8a2e9cc003aa365abcfc69b316de89c09198e231ff508eeecb007af5a"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/05-gazebo-west.png",
+      "sha256": "7901061e7304c301d598950c284e930d69c07b88f9e289444fa3cf14c691399f"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/06-rviz-progress.png",
+      "sha256": "f4a6abf72d0f17a3fe0bbc8287dc7c709da2077873e665e9cef037239b9a5101"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/07-gazebo-top.png",
+      "sha256": "a05c6ac1650758f722599af95e18e31bb303c7657e65f4422229d41b033db197"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/08-rviz-progress.png",
+      "sha256": "d23514de4d31031d9b701f6fef09953e844340740cfe963b8bdaa84245ee0864"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/09-gazebo-east.png",
+      "sha256": "7e4e52089a227269a12e2d5225abed2e4ac63a04dc54f01d436279c882c3e378"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/10-rviz-progress.png",
+      "sha256": "7374d688d6668ffe9dc702f6f95001ca6c66fc1a86d71be4f3a2c0906ef70d55"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/README.md",
+      "sha256": "dd8ca6ba9fa80579ab80c7fe4598e4211df2d9c994fd34f5a7722da50a104abc"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/capture-manifest.json",
+      "sha256": "3aa12d6c5611263d781e721b375403a64f0d93983a3599b4f45c10e893b6fc9d"
+    },
+    {
+      "path": "docs/media/simulation-screenshots/run.log",
+      "sha256": "0989e213259e87592830eb8d50ff805d7a2928c657dea5f23dfe120227450768"
+    },
+    {
+      "path": "docs/media/updates/capture-manifest.json",
+      "sha256": "a49fe94e98814bdbdd133ee9bec4228f5d9e02098748337c2ce9b876300d1ac4"
+    },
+    {
+      "path": "docs/media/updates/mission-control.png",
+      "sha256": "316ca7a8cb00388d0a90677e3b8ae3bbb973972d50b196e7ed56b470cc30c2a3"
+    },
+    {
+      "path": "docs/media/updates/observatory-map.png",
+      "sha256": "38b862feebe3278ed51a58060a39a916004614eb10ff5a2cd67aefcbf0331c41"
+    },
+    {
+      "path": "docs/media/updates/observatory-network.png",
+      "sha256": "c888832f30f8c0b0cf341c6aaa70ace336cc2e98c9225345ac4c7835730b2ccb"
+    },
+    {
+      "path": "docs/media/updates/ppo-preview.png",
+      "sha256": "f60e6b6f600971d22060522af6aed5cd8143497fa82059a1be3131a74f968d83"
+    },
+    {
+      "path": "docs/media/updates/ros-connection.png",
+      "sha256": "65f6e4dac7e5d7fb85b8981f2f65cedf4407cb67439aa30aea63cc9881c6f402"
+    },
+    {
+      "path": "docs/planning/PS5_Plan_Part1_v2.md",
+      "sha256": "e2996fbe116db86f79679059c4a5571d5b41d5ce97c3d7931735797bd3453d6e"
+    },
+    {
+      "path": "docs/planning/claude_prompt.md",
+      "sha256": "8f95872bfe75d8eefafb2b80a5530bbe1a7561c14eba0325bad38e16b2820201"
+    },
+    {
+      "path": "docs/planning/gnn_overnight_plan.md",
+      "sha256": "f6b1fa836b9a45202c395e8cc47f73fb641451e81861adeb1aeef4024b5b0550"
+    },
+    {
+      "path": "docs/planning/large_map_evidence_summary.json",
+      "sha256": "4eba68915e9b92fdf510ce5630272f3d608ff087beebbad77f78a3fa91928f5f"
+    },
+    {
+      "path": "docs/planning/large_map_marl_roadmap.md",
+      "sha256": "5884363d51f49deb0374403ae0ec936af80642819200a74e3f9dff91df4ab0ed"
+    },
+    {
+      "path": "docs/planning/overnight_delivery_plan.md",
+      "sha256": "61a15e18d25858c27918c27846ba6140916a9e1f1cb0ce87448b80c5f1acba34"
+    },
+    {
+      "path": "docs/planning/ros2_gazebo_prompt.md",
+      "sha256": "f7c2876d3bfbf45d17473b2c36787694efa2b15e9f1401e5af16d405a52c0295"
+    },
+    {
+      "path": "docs/planning/sensor_extension_plan.md",
+      "sha256": "9fd34b0dee94316ef16d40c6cc0ed3af8bd011449079ddf36684457cba62bdb9"
+    },
+    {
+      "path": "docs/planning/slam_communication_integration_plan.md",
+      "sha256": "45bc9662c0cf101336de718348d61a30d180c4d9616aad826e9ba3d7b13bed58"
+    },
+    {
+      "path": "docs/problem_statement.md",
+      "sha256": "a2c3a1ca4f5e023a9b1a0b48a148a88bad3ea61f6a8d11d0cf533f276c509c92"
+    },
+    {
+      "path": "docs/project_report.md",
+      "sha256": "e3e1fadf561b7d58e94f2ca90e6a7f2d45aab552deb91776c235d802dad1cbbf"
+    },
+    {
+      "path": "docs/reference/Autonomous_Disaster_Response_Swarm_Implementation_Blueprint.pdf",
+      "sha256": "bc50029ac2e1494bb558d56b44c0dd7dffb81e08760783c3ae2b3204c6cc32d6"
+    },
+    {
+      "path": "docs/reference/structure-moves.json",
+      "sha256": "4775cc0f013692edc76526365b8babe86c05b833445eb9d460251e6cbc7cbaee"
+    },
+    {
+      "path": "docs/reports/engineering_validation_report.pdf",
+      "sha256": "13f948a92ee8febb5e9a43404a269648decef59c38805c6240cfeaa1807fe1b3"
+    },
+    {
+      "path": "docs/scripts/build_validation_report.py",
+      "sha256": "39fbf04ea7498cef0b2cfd373673e23159c3df41ff17c8dbafbbb209cd8ebe1d"
+    },
+    {
+      "path": "docs/scripts/capture_frontend.py",
+      "sha256": "6327341387ff1e3eeedf926583b89946c2dd40a064204c34b4e583a7dec3af12"
+    },
+    {
+      "path": "docs/validation/browser_audio_validation.json",
+      "sha256": "5b1875dc870ccf750246a6d3af163a878ceae57ea855fcccfa46088f04089c26"
+    },
+    {
+      "path": "docs/validation/browser_controls_validation.json",
+      "sha256": "6f34cc65c80d29089dbca69fd852c74d96e80b2d80d04057b53e47f410e72920"
+    },
+    {
+      "path": "docs/validation/browser_fleet_validation.json",
+      "sha256": "df5e63f103bcce3f0ef35178922e8ba08305da241f91a294fc4822886de7c179"
+    },
+    {
+      "path": "docs/validation/browser_ppo_validation.json",
+      "sha256": "750e374bb63ec3968386fd745263e04386bc2b76ab90efc4566cc2f2147b227f"
+    },
+    {
+      "path": "docs/validation/browser_seed_terrain_validation.json",
+      "sha256": "691ff0f7ab8641ccfc80898e8c17e49acceecaffd2a650b7c044bf5ea816188a"
+    },
+    {
+      "path": "docs/validation/browser_survivor_validation.json",
+      "sha256": "4ee12f6de7011f6b83348c4802ab27254b47a9cbec12048fc70348c527ae17b5"
+    },
+    {
+      "path": "docs/validation/browser_swarm_audit.json",
+      "sha256": "9f1cb4e15e2f8e311fa648a34c1a9602d81b77fd52287fb9c071d0f63bb0acd9"
+    },
+    {
+      "path": "docs/validation/browser_zoom_validation.json",
+      "sha256": "f05791cc24991886090af6a78c1857cbfdca4b185183c6478b725bc4ffecf963"
+    },
+    {
+      "path": "docs/validation/frontend_layout_theme.json",
+      "sha256": "bd3cdafd8ee6fd07b3f291e4a91221bedfc33cd621c5b3ba88cc9823380d9590"
+    },
+    {
+      "path": "docs/validation/ppo_demo_validation.json",
+      "sha256": "5b6585b95ea2a93e680bdcf00f832074b43be33a62658e8679cb27cb0ea8f1c0"
+    },
+    {
+      "path": "docs/validation/repository_checks.md",
+      "sha256": "d8cf781555e8608a76f128b6f6786ecdc93c9a5b6c6c1e51436e0581d0170073"
+    },
+    {
+      "path": "frontend/public/brand/swarm-official.png",
+      "sha256": "9f6eaca88c5fc0e8928f204b57b6248de8e8911732124ab50fb00d800de7b1d8"
+    },
+    {
+      "path": "frontend/scripts/explain_qa.py",
+      "sha256": "b81595d55b7560765c3120cf61f1178c4bfcb0829a474c9bdf93b55081764703"
+    },
+    {
+      "path": "frontend/src/components/Brand.tsx",
+      "sha256": "2df4ad122deb5bb1f40bcb19c339b36fefb615ec900880d8134861aa87dc1fef"
+    },
+    {
+      "path": "frontend/src/components/DossierModal.tsx",
+      "sha256": "d0317aa7f0cc6182995b97d00c2d7800e532004f5f9dc648c354239917bbf18c"
+    },
+    {
+      "path": "frontend/src/components/InterfaceTour.tsx",
+      "sha256": "be0f6eb3c1c18af70ac26c3bea4886ff84f7e06b10dcb662be4192ee8f220a1e"
+    },
+    {
+      "path": "frontend/src/components/ThemeToggle.tsx",
+      "sha256": "0c51f2e67f3dff55bd91bf5f45f92d5bdca300c2f7d4e71be80247bd89383d1d"
+    },
+    {
+      "path": "frontend/src/components/WelcomeGuide.tsx",
+      "sha256": "4032bcaaf58e150a2834e844ff7c64048b689f07f2412a6836ba51c392c5d1df"
+    },
+    {
+      "path": "frontend/src/components/welcome-guide.css",
+      "sha256": "c0294ddf2d2bdf43fcc774c35f7232e976bd49bbfd341c5c24f3f2d4c74c9b5b"
+    },
+    {
+      "path": "frontend/src/dossier/buildDossier.ts",
+      "sha256": "e1ee1f98ede75470c9126cfd1afd11e2e959847f8eb2f04a6c95be83c40e952f"
+    },
+    {
+      "path": "frontend/src/dossier/config.ts",
+      "sha256": "98a7926e9455f21c7f0fe1a98186baf0564510aa572897ebff97bebae487aa8b"
+    },
+    {
+      "path": "frontend/src/dossier/exportHtml.ts",
+      "sha256": "56e415a9f9fba04b084471c2c1a6e833a44df458eacfb5d20c05084c722fed0d"
+    },
+    {
+      "path": "frontend/src/dossier/index.ts",
+      "sha256": "0b52e749be5e5cf0842270fa30350dd22d161d4c74ea157a9ac241ba8a1e6654"
+    },
+    {
+      "path": "frontend/src/dossier/mergeBeliefs.ts",
+      "sha256": "8ddcee048593635eb03a9f73efd5aceadc91485f1292e8d88819b26b8b777f37"
+    },
+    {
+      "path": "frontend/src/dossier/navigation.ts",
+      "sha256": "ef529f59891be72caf9fbeb6318a2124cb7ad7ba037cbabd327d717803620cc4"
+    },
+    {
+      "path": "frontend/src/dossier/safeRoute.ts",
+      "sha256": "3ee16804b0f5f5e869521b08ec8802d62edd4319fca7e3cae0ebb141a92caaca"
+    },
+    {
+      "path": "frontend/src/dossier/types.ts",
+      "sha256": "2f113ecaf3ccd9fa0dac44785f5456bbcfb5e63dfbdca6996e9808091346c696"
+    },
+    {
+      "path": "frontend/src/explain/ConceptVisual.tsx",
+      "sha256": "d635ef424a7e884dd9189332c5ade42a4741914ccd272f5ad329ff9b9c9f1dd7"
+    },
+    {
+      "path": "frontend/src/explain/EvidenceGallery.tsx",
+      "sha256": "4a3fc7b4e60f03dfc798ae16963f801fc434c7592bad0deb9cd491ac1c61c84b"
+    },
+    {
+      "path": "frontend/src/explain/ExplainMode.tsx",
+      "sha256": "c807c6a016bd23cf24866ad9ca80fc200bccd7f2abebf217b981c516d4d646be"
+    },
+    {
+      "path": "frontend/src/explain/ExplainScene.tsx",
+      "sha256": "4297014a5e3c7031b6318f51e051b802d36dd4586a9843794d3950cd1ae6443d"
+    },
+    {
+      "path": "frontend/src/explain/ObservatoryTour.tsx",
+      "sha256": "1e5de98ede17d440789d4cab0ae56cf231b5e95c755899306712c0dfe9b38ead"
+    },
+    {
+      "path": "frontend/src/explain/concept-visual.css",
+      "sha256": "178f923213cdc98870cba48c273ca05b87a6760d37f332b1d403202042cfded0"
+    },
+    {
+      "path": "frontend/src/explain/evidence-gallery.css",
+      "sha256": "270327eed9a28ab75aab4138cfcc1f4afc34ad4fc4f5d84af75cd381030acabc"
+    },
+    {
+      "path": "frontend/src/explain/explain.css",
+      "sha256": "c1b8b9245afe570b637250fe832c35aef27633267a36488f02a4ff0c0f9e7afc"
+    },
+    {
+      "path": "frontend/src/explain/observatory-tour.css",
+      "sha256": "4d5749c860573e55005468c62942723c77d5ac0e99c16bc78b2f2f29eecafd28"
+    },
+    {
+      "path": "frontend/src/explain/observatoryTourSteps.ts",
+      "sha256": "833a116eaf40c06ef1e7e0128d5ab2cccc5127bc2a6fc1df9fd0882d52397946"
+    },
+    {
+      "path": "frontend/src/explain/session.ts",
+      "sha256": "c2c6d8b5e7703f492e91c2ab8a5602749cf7b5e2ebc63cc6b134b8bd4da000f4"
+    },
+    {
+      "path": "frontend/src/explain/story.ts",
+      "sha256": "d6460c87ea073ead710cad8856a07ddbb182d55ab4abf06eff53f959f718c05f"
+    },
+    {
+      "path": "frontend/src/observatory/GNNConceptPanel.tsx",
+      "sha256": "fcb495a7b8268016d5628c200c381cb97937c77e70c622cd876d1b0198973b53"
+    },
+    {
+      "path": "frontend/src/observatory/gnnConcept.ts",
+      "sha256": "f99f211317328babe96e05dd86b58bb8d91cee7f3a1bd1773bb863cc03dae5b0"
+    },
+    {
+      "path": "frontend/src/scene/SafeRouteOverlay.tsx",
+      "sha256": "f17232d74077ed8b2e078eefb5739035cdc8f16f6cc3698cf645256fdb17828b"
+    },
+    {
+      "path": "frontend/src/styles/branding.css",
+      "sha256": "c57b2e388d9ba3245f141c2d2c9859e474a82cf652647d702c9d081d1970b8b2"
+    },
+    {
+      "path": "frontend/src/styles/dossier-polish.css",
+      "sha256": "50994b284de894652962acad31422001144e0a43b02ceae521bd86645d2d4e9a"
+    },
+    {
+      "path": "frontend/src/styles/dossier.css",
+      "sha256": "3f9e840c8f7d6da3d6fea01e32ceef37beafe8a961ed9e0de89528fd8796cf6b"
+    },
+    {
+      "path": "frontend/src/styles/interface.css",
+      "sha256": "29d669254f74a34d5769ed7a72b0f00eb9c06bbf555b345d174de9f76a65e612"
+    },
+    {
+      "path": "frontend/src/tests/dossier.test.ts",
+      "sha256": "8498905013b8a8585e87e5c6b41188b9d774d0cc31828e566e9989232dd19793"
+    },
+    {
+      "path": "frontend/src/tests/dossierExport.test.ts",
+      "sha256": "bc04cf21eb2194fab3c130031fedbcd614788feaa6c38418f4746d731f3eb142"
+    },
+    {
+      "path": "frontend/src/tests/dossierIntegration.test.ts",
+      "sha256": "a5b79c16c6910cb720a963b9b5ca1f29de9472bb723fa8a715269be0d7d5ae45"
+    },
+    {
+      "path": "frontend/src/tests/explainSession.test.ts",
+      "sha256": "ea20b26c408ebb001fba5ce9a01a8d1c6da7c5aeea5a65c084869f9d862eb781"
+    },
+    {
+      "path": "frontend/src/tests/gnnConcept.test.ts",
+      "sha256": "8fc957641d05516b042e229225656fffcd26daa09eca6e7a1a0989efc3451785"
+    },
+    {
+      "path": "frontend/tools/validate_gnn_concept.py",
+      "sha256": "83989fdefcaa5784c1ca1b3c6406dfe7e640b8c41889f023f154329f08f024ad"
+    },
+    {
+      "path": "frontend/tools/validate_layout_theme.py",
+      "sha256": "67f1e4a4346e1f7077bb055a3aec098057c2d29efc3796157bb46fd801cfa3c7"
+    },
+    {
+      "path": "frontend/tools/validate_welcome.py",
+      "sha256": "298dc00584276cf8f9a6b1373b936c00b170fdbebf80c8f0f8db87a59e0e183a"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "61eb4dd9f5226862685f26d2c9a79e82bf30d0b9c2f4a2760a476b3adf3673da"
+    },
+    {
+      "path": "render.yaml",
+      "sha256": "0d318564c55a68c3e0a80a25c41b52cf3e9904af0646dd1ec5507e89c0d6171a"
+    },
+    {
+      "path": "scripts/cloud-start.mjs",
+      "sha256": "140fdb7ed0f1bb9d315add4c10569f1ce8eaab210bf9549f4458239dd68e9d9a"
+    },
+    {
+      "path": "scripts/public-server.mjs",
+      "sha256": "b3a7136a9a4ec30b9fd3b6fd0c0d94c21eeb881f343e067aa7a78a8d6e1175b3"
+    },
+    {
+      "path": "scripts/public-server.test.mjs",
+      "sha256": "5b60a8aee2815bfceff1c810540c0309a56718c4edd662ba1594808b2f9935ed"
+    },
+    {
+      "path": "simulation/README.md",
+      "sha256": "11073fa4f529879625038b7360163c6e5649d273a457cffdbdc31691265e2d4d"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00000.npz",
+      "sha256": "36079ef1ef55754f439b248538c0d984422af0854cbe93102e6bb5e45c312f98"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00001.npz",
+      "sha256": "a6d031868b8b1b50ed64b1841de165a8fe6bca050034c761baadb98902e2a5dc"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00002.npz",
+      "sha256": "81b74cc49403e6d7335fd45480af16d4460ed61c6d8f046b69bd968a401b2646"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00003.npz",
+      "sha256": "2736be1052beb59b85d3b2a3f2cd02400b909c94bec5fd7380f5ce09046fc048"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00004.npz",
+      "sha256": "745cc1af2c435472ac9f78796d86d318dd56d2bc840aba7e89981225674bbc76"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00005.npz",
+      "sha256": "5fd6347c3c6557bfdc2244f85819a136ec2e049884f830a66c6529bc7fe99906"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00006.npz",
+      "sha256": "4f3df805a0e63988e789ab6c1f1f5beedc359a9f5a28c95200bba21d083bb174"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00007.npz",
+      "sha256": "945e49ab3c6cbb5c9c229dcd57fff801e4947be0b1e046556f03e380d5913cd6"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00008.npz",
+      "sha256": "98ea30ac0b914383414eb0ed2ea00e9b40be1584ebee0f3569753c129b0d4e08"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00009.npz",
+      "sha256": "7d4166db4a228d788d000cbbb157f66fd568d7cb569d2ead747af28964e4a00b"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00010.npz",
+      "sha256": "963951bba92317ba929f68cb57d9cf678aebd65b6446f8cf3964fbac3224561c"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00011.npz",
+      "sha256": "71df2097006f718cb38bcbb50fe285b39167b4e965c945d24dfefa2bd9c415ae"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00012.npz",
+      "sha256": "c7f120c8b757a00aa46426c16782116bd5f5915de5bcdcdb000f8c4f70b20dab"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00013.npz",
+      "sha256": "a750bd8fa4efe32c49d30df3155d4d03c62cc29eeaf3adfa862d093b61878b6e"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00014.npz",
+      "sha256": "8d6b65eaf593afaf75e882ccb6c5692c5145d05c2fcbd1b7b3ac738018d932cc"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00015.npz",
+      "sha256": "4f778bb8636c9b49a69803cdd5e17424e75dfe03d0bff97581712409ec986152"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00016.npz",
+      "sha256": "23b84030e21e02ec38f93ff0ee1559798575c51ab47852081e4f9a1b6eb166af"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/chunk_00017.npz",
+      "sha256": "0f1b766d124b8a4794a0fdc4bc3270e1eb31f05951d128b8d4795015971c5ba1"
+    },
+    {
+      "path": "training/datasets/expert_train_gpu_v2/manifest.json",
+      "sha256": "610fe2e0ed6462f8a97036cb581c7af5e5edd2884c176be52d865cd0132bbdae"
+    },
+    {
+      "path": "training/runs/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "updated_existing": [
+    ".gitignore",
+    "README.md",
+    "frontend/README.md",
+    "frontend/index.html",
+    "frontend/src/app/App.tsx",
+    "frontend/src/components/SceneHud.tsx",
+    "frontend/src/components/SurvivorEncounter.tsx",
+    "frontend/src/components/TopBar.tsx",
+    "frontend/src/main.tsx",
+    "frontend/src/observatory/ObservatoryPage.tsx",
+    "frontend/src/observatory/ObservatoryScene.tsx",
+    "frontend/src/observatory/observatory.css",
+    "frontend/src/observatory/types.ts",
+    "frontend/src/ppo/PPOBridge.tsx",
+    "frontend/src/ros/transport.ts",
+    "frontend/src/scene/SceneRoot.tsx",
+    "frontend/src/store/simStore.ts",
+    "frontend/src/styles/app.css",
+    "frontend/src/styles/world-polish.css",
+    "frontend/src/tests/presentation.test.ts",
+    "frontend/src/tests/rosTransport.test.ts",
+    "frontend/tools/validate_observatory_ui.py",
+    "frontend/vite.config.ts",
+    "package.json"
+  ],
+  "preserved_local_only": [
+    "artifacts/gnn_concept_observatory_regression/desktop-neural.png",
+    "artifacts/gnn_concept_observatory_regression/desktop-spatial.png",
+    "artifacts/gnn_concept_observatory_regression/mobile-neural.png",
+    "artifacts/gnn_concept_observatory_regression/ros-disconnected.png",
+    "artifacts/gnn_concept_observatory_regression/validation.json",
+    "artifacts/gnn_concept_ui/desktop-gnn-illustration.png",
+    "artifacts/gnn_concept_ui/mobile-gnn-illustration.png",
+    "artifacts/gnn_concept_ui/verification.json",
+    "documents/Autonomous_Disaster_Response_Swarm_Implementation_Blueprint.pdf",
+    "documents/branches.md",
+    "documents/gpu_architecture/architecture.md",
+    "documents/gpu_architecture/gpu_architecture_review.md",
+    "documents/problem_statement.md",
+    "experiments copy/__init__.py",
+    "experiments copy/gnn/README.md",
+    "experiments copy/gnn/__init__.py",
+    "experiments copy/gnn/artifacts.py",
+    "experiments copy/gnn/attention.py",
+    "experiments copy/gnn/config.py",
+    "experiments copy/gnn/evaluate.py",
+    "experiments copy/gnn/module.py",
+    "experiments copy/gnn/pilot.py",
+    "experiments copy/gnn/preflight.py",
+    "experiments copy/gnn/smoke.py"
+  ],
+  "intentional_reference_differences": [
+    "README.md",
+    ".gitignore",
+    "package.json",
+    "render.yaml",
+    "frontend/tools/validate_layout_theme.py"
+  ],
+  "validation": {
+    "frontend_tests": {
+      "passed": 179
+    },
+    "python_tests": {
+      "passed": 208,
+      "skipped": 3
+    },
+    "public_server_tests": {
+      "passed": 3
+    },
+    "production_build": "passed",
+    "welcome_browser_check": "passed",
+    "gnn_browser_check": {
+      "checks": [
+        "Concept is visibly and accessibly distinguished from live inference",
+        "Example score changes normalized illustrative attention",
+        "Example attention includes self and sums to one",
+        "Selecting another robot rebuilds the example receiver graph",
+        "Illustration playback, selection and scores leave mission state and command log unchanged",
+        "Example edges are excluded from real packet export",
+        "Actual peer network remains a separate view",
+        "Mobile concept view has no horizontal overflow",
+        "No browser script errors"
+      ],
+      "passed": 9,
+      "browser_errors": [],
+      "scope": "GNN teaching illustration; no live GNN inference, ROS or training claim."
+    },
+    "layout_browser_check": {
+      "checks": [
+        "header and essential controls fit eight viewport sizes"
+      ],
+      "contrast_failures": {
+        "mission": [],
+        "fleet": [],
+        "activity": [],
+        "controls": [],
+        "layers": [],
+        "explain": [],
+        "story_navigation": [],
+        "selected_fleet": [],
+        "audio": [],
+        "map_editor": [],
+        "survivor_story": [],
+        "dossier": [],
+        "selected_survivor_report": [],
+        "gnn": [],
+        "ros": []
+      },
+      "js_errors": []
+    }
+  }
+}

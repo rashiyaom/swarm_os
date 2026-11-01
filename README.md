@@ -29,10 +29,9 @@ Edit `frontend/src/` and rebuild to update the app.
 
 - **PPO:** Vite forwards `/api/ppo` to `http://127.0.0.1:8765` during development.
   The Python simulation and learning source is in `simulation/src/swarm_sar`.
-  The Python service (`backend/ppo_service.py`), dependency installation manifest
-  and compatible trained checkpoint are not included in this checkout.
-  PPO missions require restoring those original artifacts; the browser does not
-  substitute heuristic actions for a missing policy.
+  Install the Python package with `python -m pip install -e .`, then start
+  `python -m backend.ppo_service`. The service and compatible trained checkpoint
+  are included in `backend/` and `models/`.
 - **ROS:** Connecting to robots requires an external rosbridge WebSocket server,
   normally on port 9090. Browser simulation does not require ROS.
 
@@ -55,3 +54,24 @@ contains simulation runners, benchmarks, validation tools and ROS 2 runtime prob
 This repository records the workstation setup reported by the project team.
 Local source checks do not establish GPU performance or a successful remote
 ROS 2/Gazebo run; retain runtime probe output and benchmark reports with each run.
+
+## Additional workspace features
+
+The frontend includes rescue dossiers with HTML export and safe route overlays,
+an interactive explain mode, workspace tutorials, light and dark themes, and a
+GNN concept visualization in the observatory.
+
+```sh
+npm run swarm        # Start frontend, PPO service, and local fieldbook
+npm run swarm -- --check
+npm run public       # Serve the built frontend and proxy PPO
+npm run test:public  # Verify public server routing
+```
+
+The launcher requires `.venv/`, the Python package installed there, frontend
+dependencies, and the generated fieldbook in `guide-site/dist/`. See
+[backend setup](backend/README.md), [simulation setup](simulation/README.md),
+and the [documentation index](docs/README.md) for the full workflow.
+Docker and Render configuration are included for a separately authorized deployment.
+
+The local comparison and import record is in [the integration report](documents/reference-integration.md).
