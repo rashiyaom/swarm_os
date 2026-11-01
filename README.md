@@ -12,7 +12,7 @@
 
 Autonomous rovers and drones explore simulated disaster sites, build private maps, exchange discoveries and locate survivors. A 3D mission workspace, recurrent PPO policies, an experimental GNN, a rescue dossier, and a separate ROS 2 / Gazebo stack make the complete workflow visible—from a robot's local observation to an operator's mission report.
 
-[**LAUNCH THE LIVE DEMO ↗**](https://circuits-recognized-emily-paul.trycloudflare.com/) · [**READ & LISTEN ↗**](https://swarmsar.vercel.app) · [**RUN LOCALLY ↓**](#run-it-yourself)
+[**LAUNCH THE LIVE DEMO ↗**](https://swarm-sar.onrender.com/) · [**READ & LISTEN ↗**](https://swarmsar.vercel.app) · [**RUN LOCALLY ↓**](#run-it-yourself)
 
 [![React](https://img.shields.io/badge/React-18-149ECA?style=flat-square)](frontend/package.json)
 [![Three.js](https://img.shields.io/badge/Three.js-3D_mission_control-333333?style=flat-square)](frontend/src/scene/)
