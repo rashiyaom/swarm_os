@@ -13,12 +13,13 @@ const layerOptions: { key: keyof Overlays; label: string; detail: string }[] = [
   { key: 'packets', label: 'Message activity', detail: 'Data travelling across the swarm' },
   { key: 'evidence', label: 'Sensor evidence', detail: 'Thermal and acoustic signals' },
   { key: 'coverage', label: 'Explored map', detail: 'Highlight what robots have sensed' },
+  { key: 'safeRoute', label: 'Safe rescue routes', detail: 'Human team path from merged belief' },
   { key: 'labels', label: 'Robot labels', detail: 'Identify your field team' },
 ];
 
 export function SceneHud({ onOpenPanel }: { onOpenPanel: (panel: Panel) => void }) {
   useSim((s) => s.version);
-  const { engine, status, overlays, settings, selected, cameraView, cameraZoom, following, editingSurvivors, survivorMessage, setEditingSurvivors, moveCamera, toggleOverlay, toggleCleanView, launch, pause, resume, reset, setSetting } = useSim();
+  const { engine, status, overlays, settings, selected, cameraView, cameraZoom, following, editingSurvivors, survivorMessage, setEditingSurvivors, moveCamera, toggleOverlay, toggleCleanView, launch, pause, resume, reset, setSetting, openDossier } = useSim();
   const controllerMode = useSim((s) => s.controllerMode);
   const ppoPhase = useSim((s) => s.ppoPhase);
   const ppoError = useSim((s) => s.ppoError);
@@ -66,7 +67,7 @@ export function SceneHud({ onOpenPanel }: { onOpenPanel: (panel: Panel) => void 
     {overlays.graph && <NetworkGraph />}
 
     {editingSurvivors && <div className="placement-banner" role="status"><div><strong>Place survivors · {engine.scenario.victims.length} placed</strong><span>{survivorMessage ?? 'Click an empty path to add; click a marker to remove.'}</span></div><button className="btn" onClick={() => setEditingSurvivors(false)}>Done placing</button></div>}
-    {status === 'complete' && <div className="mission-brief complete-card"><span className="brief-index"><Icon name="check" size={14} />MISSION REPORT</span><h2>{engine.doneReason === 'all_found' ? 'Everyone accounted for.' : 'Mission finished.'}</h2><p>{engine.survivorsFound()} of {engine.scenario.victims.length} survivors found. {pct(engine.coverage())} of the site explored, with {engine.collisions} collisions.</p><button className="brief-configure" onClick={reset}><Icon name="reset" size={15} />Start a new mission</button></div>}
+    {status === 'complete' && <div className="mission-brief complete-card"><span className="brief-index"><Icon name="check" size={14} />MISSION REPORT</span><h2>{engine.doneReason === 'all_found' ? 'Everyone accounted for.' : 'Mission finished.'}</h2><p>{engine.survivorsFound()} of {engine.scenario.victims.length} survivors found. {pct(engine.coverage())} of the site explored, with {engine.collisions} collisions.</p><div className="mission-report-actions"><button className="brief-configure" onClick={openDossier}><Icon name="map" size={15} />View Rescue Dossier <kbd style={{ marginLeft: '4px' }}>P</kbd></button><button className="brief-configure" onClick={reset}><Icon name="reset" size={15} />Start a new mission</button></div></div>}
 
     <div className="camera-tools">
       <div className="camera-view-switch" aria-label="Camera angle"><button className={cameraView === 'isometric' ? 'active' : ''} onClick={() => moveCamera('isometric')} aria-label="Isometric camera" title="Isometric view"><Icon name="orbit" size={18} /></button><button className={cameraView === 'top' ? 'active' : ''} onClick={() => moveCamera('top')} aria-label="Top-down camera" title="Top-down view"><Icon name="top" size={18} /></button></div>

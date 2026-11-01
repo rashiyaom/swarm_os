@@ -1,0 +1,28 @@
+/* Optical crop of the official 1774 × 887 artwork. Never stretch or redraw it. */
+.swarm-brand { position: relative; display: inline-block; width: 195px; aspect-ratio: 1240 / 270; overflow: hidden; flex: 0 0 auto; vertical-align: middle; }
+.ex-brand > .swarm-brand { display: inline-block; width: 195px; height: auto; margin: 0; background: transparent; }
+.brand-loading { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; background: var(--bg); }
+.brand-loading p { margin: 0; color: var(--muted); font-size: 12px; letter-spacing: .04em; }
+.swarm-brand img { position: absolute; width: 143.065%; height: auto; max-width: none; left: -22.58%; top: -100%; filter: invert(1) hue-rotate(180deg); mix-blend-mode: multiply; }
+.topbar .brand { min-width: 195px; }
+.theme-toggle { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; }
+.theme-toggle:hover { color: var(--text); background: var(--panel-2); }
+.theme-toggle:focus-visible { outline: 2px solid #699c7c; outline-offset: 4px; }
+:root[data-theme="dark"] { color-scheme: dark; --bg: #121a17; --panel: #1b2520; --panel-2: #243129; --panel-glass: #1b2520; --glass-border: #36463a; --border: #334439; --border-strong: #526452; --text: #e5ecdf; --muted: #a3b19c; --faint: #91a18b; --accent: #a4cf9a; --good: #a0c893; }
+:root[data-theme="dark"] .swarm-brand img { filter: none; mix-blend-mode: screen; }
+:root[data-theme="dark"] :is(.topbar, .ob-header, .ex-header) { background: #151f19; border-color: var(--border); color: var(--text); }
+:root[data-theme="dark"] :is(.workspace, .command-rail, .observatory, .ex-story-pane, .ex-footer) { background: var(--bg); color: var(--text); border-color: var(--border); }
+:root[data-theme="dark"] .observatory { --ob-ink: #e5ecdf; --ob-muted: #a3b19c; --ob-line: #36483b; --ob-paper: #1b2520; --ob-green: #9bc48d; }
+:root[data-theme="dark"] :is(.workspace-drawer, .panel-head, .drawer-head, .ob-inspector, .ob-stream, .ob-gnn-panel, .ob-tour-panel, .ob-modal, .ob-connection, .ob-welcome, .ex-chapters nav, .ex-takeaway, .ex-technology, .ex-proof, .ex-recorded, .ex-concept, .maze-editor) { background: var(--panel); color: var(--text); border-color: var(--border); }
+:root[data-theme="dark"] :is(.workspace-crumb strong, .metric strong, .ob-breadcrumb strong, .ex-story-content h1, .ex-story, .ex-takeaway strong, .ex-brand small, .ob-tour-panel h2, .ob-tour-panel p) { color: var(--text); }
+:root[data-theme="dark"] :is(.workspace-crumb, .metric, .ex-eyebrow, .ex-tech-copy, .ob-source-note) { color: var(--muted); }
+:root[data-theme="dark"] :is(.rail-button, .icon-button, .ob-back, .ex-exit, .ex-read) { color: var(--muted); }
+:root[data-theme="dark"] :is(.rail-button.active, .rail-button:hover, .mission-status, .explain-launch, .observatory-launch, .fieldbook-link, .ob-source-picker, .ob-source-picker a.current, .ob-explain-launch, .ob-view-switch, .ob-view-switch button.active, .ob-agent, .ob-stage-stat, .ob-playback, .ob-stream-toggle, .ob-map-tools, .ob-layer-popover, .ob-outline, .ob-gnn-step, .ex-chapter-button) { background: var(--panel-2); color: var(--text); border-color: var(--border); }
+:root[data-theme="dark"] :is(input, select, textarea) { background: #17221b; color: var(--text); border-color: var(--border-strong); }
+:root[data-theme="dark"] :is(.ex-tech, .ex-robot-facts, .ex-chapter-number, .ex-chapters nav button:hover, .ex-chapters nav button[aria-current], .ex-exit) { background: var(--panel-2); border-color: var(--border); color: var(--text); }
+:root[data-theme="dark"] :is(.workspace-drawer, .ob-inspector, .ob-stream, .ob-gnn-panel, .ob-tour-panel, .ob-modal, .ex-story-pane, .ex-footer) :is(h1, h2, h3, h4, p, dt, dd, label, summary, small, strong) { color: var(--text); }
+:root[data-theme="dark"] :is(.ex-header button, .ex-chapters button, .ex-tech summary, .ex-tech p, .ex-navigation button, .ex-progress-heading, .ex-takeaway p) { color: var(--muted); }
+/* Keep scientific maps and original evidence in their authored color space. */
+:root[data-theme="dark"] :is(.stage, .ob-stage) { border-color: #465b49; }
+@media (max-width: 1100px) { .topbar { gap: 16px; } .topbar .brand { min-width: 165px; } .topbar .swarm-brand { width: 165px; } .ob-header { gap: 18px; } }
+@media (max-width: 760px) { .swarm-brand { width: 145px; } .topbar .brand { min-width: 130px; } .topbar .swarm-brand { width: 130px; } .theme-toggle { width: 28px; height: 28px; } .topbar { gap: 8px; } .ex-brand { gap: 8px; } .ex-brand > .swarm-brand { width: 120px; } .observatory .ob-header { gap: 8px; padding-inline: 12px; } .ob-header .swarm-brand { width: 115px; } .ob-header .ob-source-picker a { padding: 6px; } .ob-header .ob-explain-launch { padding: 8px; } }

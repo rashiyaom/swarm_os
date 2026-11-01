@@ -8,9 +8,9 @@ beforeEach(() => useSim.setState(initialState, true));
 afterEach(() => useSim.setState(initialState, true));
 
 describe('Simulation presentation', () => {
-  it('opens with readable robot labels and unobstructed terrain', () => {
+  it('opens with all optional layers off and unobstructed terrain', () => {
     const { overlays, settings, cameraView, cameraZoom, following } = useSim.getState();
-    expect(overlays.labels).toBe(true);
+    expect(Object.values(overlays).every((enabled) => !enabled)).toBe(true);
     expect(overlays.coverage).toBe(false);
     expect(overlays.truth).toBe(false);
     expect(overlays.links || overlays.graph || overlays.packets || overlays.ranges || overlays.paths || overlays.evidence).toBe(false);

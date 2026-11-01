@@ -14,3 +14,13 @@ simulation/ros2_ws/log/
 # Generated training data, checkpoints, and runtime output
 training/datasets/expert_train_gpu_v2/
 training/runs/
+
+# Local environments and caches
+.DS_Store
+.venv/
+.venv-gpu/
+.pytest_cache/
+.ipynb_checkpoints/
+/log/
+/tmp/pdfs/
+swarmos/

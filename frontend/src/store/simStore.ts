@@ -53,6 +53,7 @@ export interface Overlays {
   truth: boolean;
   netLog: boolean;
   labels: boolean;
+  safeRoute: boolean;
 }
 
 /** Simulation ticks per second at 1x speed. One tick = one second of mission time. */
@@ -62,6 +63,7 @@ export const TICKS_PER_SECOND = 4;
 export const simClock = { alpha: 1, lastTickAt: 0 };
 
 interface Store {
+  explainActive: boolean;
   controllerMode: 'heuristic' | 'ppo';
   ppoPhase: 'off' | 'preview' | 'connecting' | 'ready' | 'error';
   ppoError: string | null;
@@ -117,6 +119,10 @@ interface Store {
   select: (name: string | null) => void;
   issue: (command: Command) => void;
   advance: (ticks: number) => void;
+  dossierOpen: boolean;
+  openDossier: () => void;
+  closeDossier: () => void;
+  toggleDossier: () => void;
 }
 
 const initialSettings: Settings = {
@@ -171,6 +177,7 @@ const clearEncounters = { encounter: null, encounterQueue: [], announcedSurvivor
 const clearCameraTarget = { ...clearEncounters, selected: null, focus: null, cameraRequest: null, following: false };
 
 export const useSim = create<Store>((set, get) => ({
+  explainActive: false,
   controllerMode: 'heuristic', ppoPhase: 'off', ppoError: null, ppoOptions: DEFAULT_PPO_OPTIONS, ppoRevision: 0,
   ...clearEncounters,
   editingTerrain: false, mapMessage: null,
@@ -227,13 +234,23 @@ export const useSim = create<Store>((set, get) => ({
     coverage: false,
     truth: false,
     netLog: false,
-    labels: true,
+    labels: false,
+    safeRoute: false,
   },
   engine: initialEngine,
   status: 'ready',
   selected: null,
   version: 0,
   demo: false,
+  dossierOpen: false,
+  openDossier: () => {
+    const state = get();
+    if (state.encounter || state.explainActive || state.editingTerrain || state.editingSurvivors) return;
+    if (state.status === 'running') state.pause();
+    set({ dossierOpen: true });
+  },
+  closeDossier: () => set({ dossierOpen: false }),
+  toggleDossier: () => get().dossierOpen ? get().closeDossier() : get().openDossier(),
   focus: null,
   cameraRequest: null,
   cameraView: 'isometric',
@@ -382,7 +399,7 @@ export const useSim = create<Store>((set, get) => ({
   toggleOverlay: (key) => set({ overlays: { ...get().overlays, [key]: !get().overlays[key] } }),
 
   launch: () => {
-    if (get().editingTerrain) return;
+    if (get().dossierOpen || get().editingTerrain) return;
     if (get().controllerMode === 'ppo' && get().ppoPhase !== 'ready') return;
     if (get().status === 'ready') {
       if (!get().engine.scenario.victims.length) { set({ survivorMessage: 'Add at least one survivor before launching.' }); return; }
@@ -393,10 +410,10 @@ export const useSim = create<Store>((set, get) => ({
     if (get().status === 'running') set({ status: 'paused' });
   },
   resume: () => {
-    if (get().status === 'paused' && !get().encounter && (get().controllerMode === 'heuristic' || get().ppoPhase === 'ready')) set({ status: 'running' });
+    if (!get().dossierOpen && get().status === 'paused' && !get().encounter && (get().controllerMode === 'heuristic' || get().ppoPhase === 'ready')) set({ status: 'running' });
   },
   reset: () => {
-    set({ editingTerrain: false, mapMessage: null });
+    set({ dossierOpen: false, editingTerrain: false, mapMessage: null });
     if (get().controllerMode === 'ppo') {
       set({ ...clearEncounters, ...clearCameraTarget, status: 'ready', ppoPhase: get().ppoPhase === 'preview' ? 'preview' : 'connecting', ppoError: null, ppoRevision: get().ppoRevision + 1 });
       return;
@@ -471,12 +488,12 @@ export const useSim = create<Store>((set, get) => ({
   },
   advance: (ticks) => {
     const { engine, status } = get();
-    if (get().controllerMode === 'ppo' || status !== 'running' || ticks <= 0) return;
+    if ((get().controllerMode === 'ppo' && !get().explainActive) || status !== 'running' || ticks <= 0) return;
     const announced = new Set(get().announcedSurvivors);
     for (let i = 0; i < ticks && !engine.done; i++) {
       engine.tick();
       const fresh = engine.discoveredSurvivors().filter((victim) => !announced.has(victim.id)).map((v) => v.id);
-      if (fresh.length) {
+      if (fresh.length && !get().explainActive) {
         set({ encounter: { id: fresh[0], automatic: true }, encounterQueue: fresh.slice(1),
           announcedSurvivors: [...get().announcedSurvivors, ...fresh], encounterReturnStatus: 'running',
           focus: null, following: false, cameraRequest: null, status: 'paused', version: get().version + 1 });

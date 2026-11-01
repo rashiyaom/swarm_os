@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: swarmos
+    repo: https://github.com/rashiyaom/swarm_os
+    branch: main
+    runtime: docker
+    plan: pro
+    region: singapore
+    numInstances: 1
+    autoDeploy: false
+    healthCheckPath: /api/ppo/health
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: SWARM_BIND_HOST
+        value: "0.0.0.0"

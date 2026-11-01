@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TopBar } from '../components/TopBar';
 import { LeftPanel } from '../components/LeftPanel';
 import { RightPanel } from '../components/RightPanel';
 import { EventFeed } from '../components/EventFeed';
 import { SceneHud } from '../components/SceneHud';
 import { SceneRoot } from '../scene/SceneRoot';
+import { DossierModal } from '../components/DossierModal';
 import { useSim } from '../store/simStore';
 import { Icon, type IconName } from '../components/Icon';
 import { SurvivorEncounter } from '../components/SurvivorEncounter';
@@ -13,6 +14,11 @@ import { MazeEditor } from '../components/MazeEditor';
 import { AudioBridge } from '../audio/AudioBridge';
 import { soundscape } from '../audio/Soundscape';
 import { BrowserObservatory } from '../observatory/BrowserObservatory';
+import { ExplainMode } from '../explain/ExplainMode';
+import { beginExplainSession } from '../explain/session';
+import { WelcomeGuide } from '../components/WelcomeGuide';
+import { InterfaceTour } from '../components/InterfaceTour';
+import '../explain/explain.css';
 
 export type Panel = 'setup' | 'fleet' | 'activity' | 'help' | null;
 
@@ -30,13 +36,20 @@ const KEY_DIRECTIONS: Record<string, number> = {
 function useKeyboard() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (document.querySelector('.welcome-guide[open],.interface-tour[open]')) return;
+      if (useSim.getState().dossierOpen) {
+        if (e.code === 'Escape') useSim.getState().closeDossier();
+        return;
+      }
+      if (useSim.getState().explainActive || document.querySelector('.ob-tour-panel')) return;
       if (useSim.getState().encounter && e.code !== 'KeyM') {
         if (e.code === 'Space' && !(e.target as HTMLElement)?.closest('button')) e.preventDefault();
         return;
       }
       if (e.code === 'Escape') {
         const state = useSim.getState();
-        if (state.cleanView) state.toggleCleanView();
+        if (state.dossierOpen) state.closeDossier();
+        else if (state.cleanView) state.toggleCleanView();
         else if (state.editingSurvivors) state.setEditingSurvivors(false);
         else state.select(null);
         return;
@@ -50,6 +63,7 @@ function useKeyboard() {
       }
       if (target?.closest('input, select, textarea, [contenteditable="true"]')) return;
       if (e.code === 'Space' && target?.closest('button')) return;
+      if (e.code === 'KeyP') { e.preventDefault(); if (!e.repeat) useSim.getState().toggleDossier(); return; }
       if (e.code === 'KeyH') { e.preventDefault(); if (!e.repeat) useSim.getState().toggleCleanView(); return; }
       const { status, selected, engine, settings, issue, pause, resume, launch } = useSim.getState();
       if (e.code === 'Space') {
@@ -81,12 +95,14 @@ function useKeyboard() {
 export function App() {
   useKeyboard();
   const [observatory, setObservatory] = useState(() => new URLSearchParams(location.search).get('mode') === 'observatory');
-  const navigateObservatory = (open: boolean) => {
+  const navigateObservatory = (open: boolean, tour = false) => {
     const url = new URL(window.location.href);
     if (open) url.searchParams.set('mode', 'observatory');
     else url.searchParams.delete('mode');
+    if (open && tour) url.searchParams.set('explain', '1'); else url.searchParams.delete('explain');
     window.history.pushState({}, '', url);
     setObservatory(open);
+    if (open && !tour) setObservatoryHint(true);
   };
   useEffect(() => {
     const onPopState = () => setObservatory(new URLSearchParams(location.search).get('mode') === 'observatory');
@@ -94,17 +110,30 @@ export function App() {
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
   const [panel, setPanel] = useState<Panel>(null);
+  const [observatoryHint, setObservatoryHint] = useState(false);
+  const explaining = useSim((s) => s.explainActive);
+  const restoreMission = useRef<(() => void) | null>(null);
+  const openExplain = () => { restoreMission.current ??= beginExplainSession(); };
+  const closeExplain = () => {
+    restoreMission.current?.(); restoreMission.current = null;
+    requestAnimationFrame(() => document.querySelector<HTMLButtonElement>('.explain-launch')?.focus());
+  };
+  useEffect(() => () => { restoreMission.current?.(); restoreMission.current = null; }, []);
+  useEffect(() => {
+    if (observatory) { restoreMission.current?.(); restoreMission.current = null; }
+  }, [observatory]);
   const selected = useSim((s) => s.selected);
   const cleanView = useSim((s) => s.cleanView);
   const editingTerrain = useSim((s) => s.editingTerrain);
   const encounter = useSim((s) => s.encounter);
+  const dossierOpen = useSim((s) => s.dossierOpen);
   const editingSurvivors = useSim((s) => s.editingSurvivors);
   const toggleCleanView = useSim((s) => s.toggleCleanView);
   useEffect(() => { if (encounter) setPanel(null); }, [encounter]);
-  useEffect(() => { if (selected) setPanel('fleet'); }, [selected]);
+  useEffect(() => { if (selected && !explaining) setPanel('fleet'); }, [selected, explaining]);
   useEffect(() => { if (editingSurvivors || cleanView) setPanel(null); }, [editingSurvivors, cleanView]);
   useEffect(() => {
-    const close = (event: KeyboardEvent) => { if (event.code === 'Escape') setPanel(null); };
+    const close = (event: KeyboardEvent) => { if (event.code === 'Escape' && !useSim.getState().explainActive) setPanel(null); };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, []);
@@ -118,24 +147,26 @@ export function App() {
     <>
       <AudioBridge />
       <PPOBridge />
-      {observatory ? <BrowserObservatory onBack={() => navigateObservatory(false)} /> : <div className={`app ${cleanView ? 'clean-view' : ''}`}>
+      {observatory ? <BrowserObservatory onBack={() => navigateObservatory(false)} /> : <div className={`app ${cleanView ? 'clean-view' : ''} ${explaining ? 'explaining' : ''}`}>
       {editingTerrain && <MazeEditor />}
-      {!cleanView && <TopBar onOpenObservatory={() => navigateObservatory(true)} />}
-      {!cleanView && <nav className="command-rail" aria-label="Workspace">
+      {!cleanView && !explaining && <TopBar onOpenObservatory={() => navigateObservatory(true)} onExplain={openExplain} />}
+      {!cleanView && !explaining && <nav className="command-rail" aria-label="Workspace">
         <div className="rail-navigation">
           {items.map((item) => <button key={item.label} className={`rail-button ${panel === item.panel ? 'active' : ''}`} onClick={() => setPanel(panel === item.panel ? null : item.panel)} aria-label={item.label === 'World' ? 'World overview' : `Open ${item.label.toLowerCase()} panel`} aria-pressed={panel === item.panel} title={item.label}><Icon name={item.icon} /><span>{item.label}</span></button>)}
         </div>
-        <button className={`rail-button ${panel === 'help' ? 'active' : ''}`} onClick={() => setPanel(panel === 'help' ? null : 'help')} aria-label="Open controls guide" aria-pressed={panel === 'help'}><Icon name="help" /><span>Controls</span></button>
+        <div className="rail-help-actions"><button className="rail-button" onClick={() => { useSim.getState().pause(); setPanel(null); window.dispatchEvent(new Event('swarm-tutorial')); }} aria-label="Replay workspace tutorial" title="Replay workspace tutorial"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M9 18h6M9 21h6M8 13a6 6 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3Z" /></svg><span>Tutorial</span></button>
+        <button className={`rail-button ${panel === 'help' ? 'active' : ''}`} onClick={() => setPanel(panel === 'help' ? null : 'help')} aria-label="Open controls guide" aria-pressed={panel === 'help'}><Icon name="help" /><span>Controls</span></button></div>
         <div className="rail-version">LOCAL</div>
       </nav>}
-      <main className={`workspace ${panel && !cleanView ? 'has-panel' : ''}`}>
+      <main className={`workspace ${panel && !cleanView && !explaining ? 'has-panel' : ''}`}>
         <section className="stage" aria-label="Interactive simulation world">
           <SceneRoot />
-          <SurvivorEncounter />
-          {!cleanView && !encounter && <SceneHud onOpenPanel={setPanel} />}
+          {!explaining && <SurvivorEncounter />}
+          {explaining && <ExplainMode onExit={closeExplain} onOpenObservatory={() => { closeExplain(); navigateObservatory(true, true); }} />}
+          {!cleanView && !encounter && !explaining && <SceneHud onOpenPanel={setPanel} />}
           {cleanView && <button className="restore-interface" onClick={toggleCleanView} aria-label="Show interface" title="Show interface (H or Esc)"><Icon name="overview" size={17} /><span>Show interface <kbd>H</kbd></span></button>}
         </section>
-        {panel && !cleanView && <aside className="workspace-drawer" aria-label={`${panel} panel`}>
+        {panel && !cleanView && !explaining && <aside className="workspace-drawer" aria-label={`${panel} panel`}>
           <button className="drawer-close icon-button" aria-label="Close panel" title="Close panel (Esc)" onClick={() => setPanel(null)}><Icon name="close" size={18} /></button>
           {panel === 'setup' && <LeftPanel />}
           {panel === 'fleet' && <RightPanel />}
@@ -144,6 +175,9 @@ export function App() {
         </aside>}
       </main>
     </div>}
+    {dossierOpen && !encounter && !explaining && <DossierModal />}
+    {!observatory && <WelcomeGuide onExplain={openExplain} onObservatory={() => { navigateObservatory(true); setObservatoryHint(true); }} />}
+    {observatory && observatoryHint && <InterfaceTour steps={[{ target: '.ob-explain-launch', title: 'Take the Observatory tour', text: 'This Explain button walks through the live map, peer network, messages and GNN concept. Start the guided tour now, or return to this button whenever you like.' }]} action="Start Observatory tour" onDone={() => { setObservatoryHint(false); document.querySelector<HTMLButtonElement>('.ob-explain-launch')?.click(); }} />}
     </>
   );
 }
@@ -157,7 +191,7 @@ function ControlsGuide() {
     <h3>Move your camera</h3>
     <dl className="shortcut-list"><dt>Orbit</dt><dd>Left mouse drag</dd><dt>Pan</dt><dd>Right mouse drag</dd><dt>Zoom at cursor</dt><dd>Scroll or <kbd>+</kbd> <kbd>−</kbd></dd><dt>Overview</dt><dd><kbd>R</kbd></dd><dt>Focus robot</dt><dd>Select, then <kbd>F</kbd></dd></dl>
     <h3>Run your mission</h3>
-    <dl className="shortcut-list"><dt>Launch / pause</dt><dd><kbd>Space</kbd></dd><dt>Inspect robot</dt><dd>Click a robot</dd><dt>Mute / enable sound</dt><dd><kbd>M</kbd></dd><dt>Watch maze / UI</dt><dd><kbd>H</kbd></dd><dt>Close / restore</dt><dd><kbd>Esc</kbd></dd></dl>
+    <dl className="shortcut-list"><dt>Launch / pause</dt><dd><kbd>Space</kbd></dd><dt>Inspect robot</dt><dd>Click a robot</dd><dt>Rescue dossier</dt><dd><kbd>P</kbd></dd><dt>Mute / enable sound</dt><dd><kbd>M</kbd></dd><dt>Watch maze / UI</dt><dd><kbd>H</kbd></dd><dt>Close / restore</dt><dd><kbd>Esc</kbd></dd></dl>
     <details className="disclosure"><summary>Manual driving</summary><p className="explain">Choose Manual or Mixed in Mission settings, then select a robot. Click a walkable tile to set a waypoint.</p><dl className="shortcut-list"><dt>Move</dt><dd><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrows</dd><dt>Scan</dt><dd><kbd>E</kbd></dd><dt>Stop</dt><dd><kbd>X</kbd></dd></dl></details>
     <p className="explain terrain-guide"><strong>Read the terrain.</strong> Robots can cross low debris. Solid walls block travel.</p>
     <p className="guide-note"><Icon name="layers" size={18} />Use Layers to reveal paths, radio links, or the robots’ explored map.</p>

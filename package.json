@@ -5,7 +5,12 @@
     "dev": "npm --prefix frontend run dev --",
     "build": "npm --prefix frontend run build --",
     "preview": "npm --prefix frontend run preview --",
-    "test": "npm --prefix frontend test --"
+    "test": "npm --prefix frontend test --",
+    "swarm": "node scripts/swarm.mjs",
+    "public": "node scripts/public-server.mjs",
+    "test:public": "node --test scripts/public-server.test.mjs"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  }
 }

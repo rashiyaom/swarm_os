@@ -1,0 +1,117 @@
+/* Shared chrome: one density scale and one palette for all workspaces. */
+:root { --muted: #60705f; --faint: #65735f; --warn: #8a5f24; --bad: #a44b38; --control-fill: #3b6248; --on-accent: #fffef5; }
+:root[data-theme="dark"] { --control-fill: #aacda0; --on-accent: #17241b; --bad: #eeac98; --warn: #e5c181; }
+.app { grid-template-columns: 64px minmax(0,1fr); grid-template-rows: 64px minmax(0,1fr); min-height: 0; }
+.app .topbar { display: flex; gap: clamp(10px,1.2vw,20px); min-width: 0; padding: 0 20px; }
+.topbar-identity { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.app .topbar .brand { min-width: 0; }
+.app .topbar .swarm-brand { width: 158px; }
+.topbar-actions { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.app .topbar-actions :is(button,a) { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-height: 33px; padding: 7px 10px; border-radius: 8px; gap: 6px; font-size: 11px; line-height: 1.2; white-space: nowrap; }
+.app .topbar-actions .explain-launch { font-size: 11px; }
+.app .topbar-actions :is(.ob-launch-spark,kbd) { display: none; }
+.app .topbar .mission-metrics { margin-left: auto; gap: 18px; flex-shrink: 0; }
+.app .topbar .metric { min-width: 72px; gap: 7px; }
+.app .topbar .metric div > span { font-size: 9px; white-space: nowrap; }
+.app .topbar .metric strong { font-size: 14px; }
+.app .topbar .mission-status { padding: 7px 10px; font-size: 10px; }
+.command-rail { min-width: 0; padding-inline: 5px; }
+.app .rail-button { width: 48px; height: 54px; gap: 5px; font-size: 9px; border-radius: 9px; }
+.app .workspace { min-width: 0; min-height: 0; padding: 12px 14px 14px 0; gap: 12px; }
+.app .stage { min-width: 0; min-height: 0; border-radius: 12px; }
+.app .workspace-drawer { flex-basis: 304px; width: 304px; }
+.app .panel { padding: 21px 18px; }
+.app :is(.panel-title,.panel-header h2) { font-size: 20px; }
+.app .world-hud::before { background: linear-gradient(180deg,#eaf2dd99,#eaf2dd00); }
+.app .world-hud .playback { width: min(650px,calc(100% - 40px)); min-height: 56px; padding: 8px; gap: 9px; border-radius: 12px; }
+.app .world-hud .launch-button { min-height: 36px; min-width: 144px; font-size: 11px; padding: 8px 11px; border-radius: 8px; }
+.app .world-hud .camera-tools { bottom: 106px; }
+.app .world-hud .world-toolbar { padding: 4px; top: 20px; right: 20px; border-radius: 10px; }
+.app .world-hud .world-toolbar .scene-button { min-height: 30px; padding: 6px 8px; }
+.app .world-hud .complete-card { width: 235px; padding: 16px; }
+.app .world-hud .complete-card h2 { font-size: 20px; }
+.app .world-hud .complete-card > .mission-report-actions { display: grid; gap: 8px; margin-top: 12px; }
+.app .world-hud .complete-card .brief-configure { margin: 0; padding: 9px 10px; min-height: 34px; border: 1px solid var(--border); border-radius: 7px; background: var(--panel-2); color: var(--text); justify-content: center; }
+.encounter-card { max-height: calc(100dvh - 160px); overflow-y: auto; }
+.encounter-card h2 { font-size: 24px; }
+.encounter-card p { font-size: 15px; line-height: 1.65; }
+:root[data-theme="dark"] .app .world-hud { --world-surface: #1b2520f5; --world-line: #405344; }
+:root[data-theme="dark"] .app .world-hud :is(.world-toolbar,.playback,.camera-view-switch,.zoom-controls) { box-shadow: 0 5px 20px #07100930; }
+:root[data-theme="dark"] :is(.world-heading,.world-context,.scene-footnote,.world-help-button,.ob-stage-title,.ob-source-note,.ob-stage-top .ob-eyebrow,.ob-stamp,.ob-stamp time) { color: #3d5c48; }
+:root[data-theme="dark"] .ob-source-note small { color: #4c6b55; }
+:root[data-theme="dark"] .exv-svg-label { fill: var(--text); }
+.observatory .ob-header { height: 64px; padding-inline: 20px; gap: 20px; }
+.observatory .ob-header .swarm-brand { width: 158px; }
+.observatory .ob-stage { height: calc(100dvh - 64px); min-height: 0; }
+.dossier-overlay .dossier-header { padding: 18px 24px; }
+.dossier-overlay .dossier-header h1 { font-size: 24px; }
+.dossier-overlay .dossier-body { padding: 20px 24px; }
+.dossier-overlay .dossier-card { padding: 15px 17px; }
+@media (max-width: 1600px) { .app .topbar .mission-status { display: none; } }
+@media (max-width: 1200px) {
+ .app .topbar .metric-time { display: none; }
+ .app .topbar-actions .fieldbook-link > span { display: none; }
+ .app .topbar .mission-metrics { gap: 12px; }
+ .app .topbar .swarm-brand { width: 138px; }
+}
+@media (max-width: 1000px) {
+ .app .topbar .mission-metrics { display: none; }
+ .app .topbar-actions { margin-left: auto; }
+ .app .workspace-drawer { position: absolute; z-index: 70; top: 12px; right: 14px; bottom: 14px; width: min(320px,calc(100% - 28px)); box-shadow: -8px 8px 30px #142b2320; }
+ .ob-breadcrumb { display: none; }
+}
+@media (max-width: 640px) {
+ .app { grid-template-columns: 54px minmax(0,1fr); grid-template-rows: 58px minmax(0,1fr); }
+ .app .topbar { padding-inline: 12px; gap: 8px; }
+ .topbar-identity { gap: 8px; }
+ .app .topbar .swarm-brand { width: 126px; }
+ .app .topbar-actions { gap: 5px; }
+ .app .topbar-actions :is(button,a) { width: 31px; min-height: 31px; padding: 5px; }
+ .app .topbar-actions .fieldbook-link { display: inline-flex; }
+ .app .topbar-actions .observatory-launch .topbar-label,.app .topbar-actions .topbar-dossier-btn > span { display: none; }
+ .app .topbar-actions .explain-launch { width: auto; gap: 5px; }
+ .app .rail-button { width: 42px; height: 49px; font-size: 8px; }
+ .app .workspace { padding: 8px 8px 8px 0; }
+ .app .workspace-drawer { top: 8px; right: 8px; bottom: 8px; width: min(310px,calc(100% - 16px)); }
+ .app .world-hud .playback { display: grid; width: calc(100% - 24px); gap: 7px; padding: 8px; }
+ .app .world-hud .launch-button { min-width: 0; }
+ .app .world-hud .world-toolbar { top: 108px; left: 15px; right: auto; }
+ .app .world-hud .complete-card { top: 164px; max-height: calc(100% - 300px); overflow-y: auto; }
+ .observatory .ob-header { gap: 7px; padding-inline: 10px; }
+ .observatory .ob-header .swarm-brand { width: 112px; }
+ .observatory .ob-header .ob-source-picker a { padding: 6px; }
+ .observatory .ob-header .ob-explain-launch { padding: 7px; }
+ .encounter-stage { padding: 12px 12px 100px; }
+ .encounter-card { padding: 16px; }
+ .encounter-footer { flex-wrap: wrap; gap: 12px; }
+ .encounter-footer button { width: 100%; }
+ .dossier-overlay .dossier-header { padding: 15px; }
+ .dossier-overlay .dossier-body { padding: 15px; }
+}
+@media (max-width: 360px) {
+ .app .topbar .swarm-brand { width: 108px; }
+ .app .topbar-actions .explain-launch { width: 31px; }
+ .app .topbar-actions .explain-launch .topbar-label { display: none; }
+ .observatory .ob-header .swarm-brand { width: 90px; }
+ .observatory .ob-header .ob-explain-launch { font-size: 0!important; gap: 0; }
+ .observatory .ob-header .ob-explain-launch > span { font-size: 13px; }
+}
+@media (max-height: 600px) and (min-width: 641px) {
+ .app .world-hud .world-heading { top: 15px; }
+ .app .world-hud .world-heading h1 { font-size: 22px; }
+ .app .world-hud .playback { bottom: 25px; }
+ .app .world-hud .complete-card { top: 104px; max-height: calc(100% - 190px); overflow-y: auto; }
+ .encounter-stage { padding-bottom: 20px; }
+ .encounter-card { max-height: calc(100dvh - 100px); }
+}
+:root[data-theme="dark"] .ex-navigation .ex-next { color: var(--on-accent); }
+:root[data-theme="dark"] :is(.exv-hint,.exv-combine) { fill: var(--panel-2); stroke: var(--border-strong); }
+/* Map colors remain scientific; its surrounding legend always has a dark frame. */
+.dossier-overlay .situation-map-wrapper { background: #263b30; border-color: var(--border); }
+.dossier-overlay .situation-map-wrapper :is(.map-legend,.legend-item) { color: #dce8d4; }
+.dossier-overlay .dossier-eyebrow span { color: var(--muted); }
+:root[data-theme="dark"] .dossier-overlay .corridor-zoom-pill { background: var(--control-fill); color: var(--on-accent); }
+:root[data-theme="dark"] .dossier-overlay .focus-toggle-btn.active { color: var(--on-accent); }
+@media print {
+ :root[data-theme] { color-scheme: light!important; --text: #293e32!important; --muted: #60705f!important; --panel: #fff!important; --panel-2: #f1f3eb!important; --bg: #fff!important; --border: #cbd6c6!important; --on-accent: #fff!important; --control-fill: #315a40!important; }
+}

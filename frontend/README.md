@@ -37,6 +37,12 @@ moving-robot focus, focus transfer, scene-only viewing and mobile restoration. I
 
 ## Using the simulator
 
+Choose **ⓘ Explain** for a ten-chapter interactive rescue story using this same animated
+3D world. Meet the robots, try simple mapping/learning/teamwork games, and inspect original
+Gazebo/RViz captures and training evidence. The guided sandbox preserves your mission.
+Optional browser narration, chapter navigation, and mobile layouts are included.
+[Explain Mode guide](../docs/guides/explain_mode.md).
+
 The world occupies the workspace. A command rail opens one panel at a time; select **World**
 or close the panel to return to the full scene.
 
@@ -286,11 +292,6 @@ browser animation, selection, ten-unit fleet, mobile and cleanup checks.
 
 ### Trained PPO missions
 
-**Availability:** This checkout includes the browser client only. The available
-branches do not contain `backend/ppo_service.py`, its Python dependencies or the
-trained checkpoint. The instructions below apply after restoring those original
-artifacts. Use the default heuristic controller to run without a backend.
-
 Start `.venv/bin/python backend/ppo_service.py` from the repository root, then Vite
 on port 5173. Open **Mission → Exploration controller → PPO**, configure the mission,
 then select **Create mission → Launch mission**. Python
@@ -298,7 +299,7 @@ owns map generation, sensors, decisions and physics; the browser only presents
 snapshots. Development seed 10000 reproduces 4/4 survivors in 94 steps. Connection
 loss pauses the mission; reset explicitly recovers. Discovery conversations,
 camera/follow and sound remain available. Custom survivor editing/manual driving
-stay in heuristic mode. The original integration guide is not included in this checkout.
+stay in heuristic mode. See [complete setup, scope and tests](../docs/guides/ppo_frontend_integration.md).
 
 PPO map seeds accept **10000–10099**, with an inline error for invalid values and
 a Shuffle button. The terrain guide distinguishes low traversable debris from

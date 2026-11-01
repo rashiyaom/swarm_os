@@ -58,13 +58,13 @@ The existing `.venv` editable installation was corrected from the neighboring
 Historical reports copied under `docs/` describe reference runs. They do not establish
 new local GPU, ROS, Gazebo, or deployment results. Those runtime checks were not run.
 
-The import was prepared on `integrate/reference-missing-features` without pushing
-or deploying. A subsequent documentation-only publication selects `docs/`, this
-report and its JSON inventory, root documentation, and `simulation/README.md`.
-Frontend, packaging, hosting, and training changes remain local and are excluded
-from that publication. Feature descriptions above cover the full local integration;
-the documentation-only publication does not make those frontend features available
-on remote `main`.
+The import was prepared on `integrate/reference-missing-features` without deploying.
+Publication is split into two focused commits: documentation and the simulation
+README in `71b1c27` under Purva Shah (`24CS094Purva`), followed by the remaining
+frontend, packaging, serving, and deployment configuration under Yash Bharvada
+(`Yash-Bharvada`). Ignored datasets, generated output, and local environments are
+excluded from both commits. Deployment configuration is included without triggering
+a deployment.
 
 See [the machine-readable import record](reference-integration.json) for file inventory
 and browser-check results.
