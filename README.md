@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://circuits-recognized-emily-paul.trycloudflare.com/">
+<a href="https://swarmsar.vercel.app">
 <img src="frontend/public/brand/swarm-official.png" alt="SWARM — Search & Rescue" width="620" />
 </a>
 
@@ -12,7 +12,7 @@
 
 Autonomous rovers and drones explore simulated disaster sites, build private maps, exchange discoveries and locate survivors. A 3D mission workspace, recurrent PPO policies, an experimental GNN, a rescue dossier, and a separate ROS 2 / Gazebo stack make the complete workflow visible—from a robot's local observation to an operator's mission report.
 
-[**LAUNCH THE LIVE DEMO ↗**](https://swarm-sar.onrender.com/) · [**READ & LISTEN ↗**](https://swarmsar.vercel.app) · [**RUN LOCALLY ↓**](#run-it-yourself)
+[**READ THE SWARM SAR FIELD GUIDE ↗**](https://swarmsar.vercel.app) · [**RUN THE MISSION LOCALLY ↓**](#run-it-yourself)
 
 [![React](https://img.shields.io/badge/React-18-149ECA?style=flat-square)](frontend/package.json)
 [![Three.js](https://img.shields.io/badge/Three.js-3D_mission_control-333333?style=flat-square)](frontend/src/scene/)
@@ -25,13 +25,11 @@ Autonomous rovers and drones explore simulated disaster sites, build private map
 
 ---
 
-[![Recorded 3D browser mission with rovers and drones](docs/media/frontend/mission-live.gif)](https://circuits-recognized-emily-paul.trycloudflare.com/)
+[![Recorded 3D browser mission with rovers and drones](docs/media/frontend/mission-live.gif)](https://swarmsar.vercel.app)
 
 <p align="center"><em>Real browser recording: an office map, two rovers and two drones, heuristic control at 4× playback. This historical recording predates the official branding and dossier; current interface captures appear below.</em></p>
 
-> **Start here:** open the [live app](https://circuits-recognized-emily-paul.trycloudflare.com/), choose **Explain** for the guided story, or launch a mission and open **Observatory** to inspect the team. The [narrated fieldbook](https://swarmsar.vercel.app) is a separate reading/listening experience.
->
-> **Availability:** the app link is a temporary Cloudflare Quick Tunnel hosted by a Windows PC. The host must remain awake with its services running; restarting the tunnel can change the URL. The latest local integration also includes the rescue dossier; the public host may run an earlier version until its next approved update. ROS/Gazebo runs separately on Linux.
+> **Start here:** read or listen to the [SWARM SAR field guide](https://swarmsar.vercel.app), then run the browser mission locally to explore **Explain**, **Observatory**, fleet coordination and rescue reports. ROS/Gazebo runs separately on Linux.
 
 ## Explore this project
 
@@ -63,9 +61,9 @@ This repository is a **synthetic research and teaching prototype**. Its simulate
 
 | Experience | Online / recorded access | Run it yourself |
 | :--- | :--- | :--- |
-| **3D browser mission** | [Open live app](https://circuits-recognized-emily-paul.trycloudflare.com/) · [Animated recording](docs/media/frontend/mission-live.gif) | `npm run swarm` → http://localhost:5173/ |
+| **3D browser mission** | [Animated recording](docs/media/frontend/mission-live.gif) · [SWARM SAR field guide](https://swarmsar.vercel.app) | `npm run swarm` → http://localhost:5173/ |
 | **Interactive Explain guide** | Choose **Explain** in the app header | Same frontend; no Python required for the story |
-| **Private-map and peer observatory** | [Open observatory](https://circuits-recognized-emily-paul.trycloudflare.com/?mode=observatory) | http://localhost:5173/?mode=observatory |
+| **Private-map and peer observatory** | [Read the observatory guide](https://swarmsar.vercel.app) | http://localhost:5173/?mode=observatory |
 | **GNN concept walkthrough** | Observatory → **GNN concept** | Frontend teaching view; example attention, not live GNN inference |
 | **Rescue dossier** | Latest integrated checkout → **Dossier** or **P** | Review maps, survivors and routes; export HTML/JSON or Print/PDF |
 | **Saved PPO in the browser** | Mission → PPO → preview → create → launch; requires available host capacity | Local Python service on port 8765, proxied by the frontend |
@@ -409,15 +407,15 @@ The browser, learned Python grid runtime and physical robotics stack have differ
 
 ## Run it yourself
 
-Use **Node.js 18+ and Python 3.12+** for the complete launcher/checkpoint workflow. The simulator package declares Python 3.10+, but the supplied complete workflow uses newer runtime APIs. This is a private repository: clone with an authorized GitHub account.
+Use **Node.js 18+ and Python 3.12+** for the complete launcher/checkpoint workflow. The simulator package declares Python 3.10+, but the supplied complete workflow uses newer runtime APIs. This repository is public. Clone it into a working folder, then follow the platform-specific setup below.
 
 ### Windows · Command Prompt
 
 Install Git, Node.js and Python 3.12, then:
 
 ```cmd
-git clone --branch main https://github.com/rashiyaom/swarm-sar.git
-cd swarm-sar
+git clone --branch main https://github.com/rashiyaom/swarm_os.git
+cd swarm_os
 py -3.12 -m venv .venv
 .venv\Scripts\python.exe -m pip install --upgrade pip setuptools wheel
 .venv\Scripts\python.exe -m pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
@@ -434,8 +432,8 @@ These are **CMD commands**, not PowerShell commands; no `&` prefix or virtual-en
 ### macOS / Linux
 
 ```bash
-git clone --branch main https://github.com/rashiyaom/swarm-sar.git
-cd swarm-sar
+git clone --branch main https://github.com/rashiyaom/swarm_os.git
+cd swarm_os
 python3 -m venv .venv
 .venv/bin/python -m pip install --upgrade pip
 .venv/bin/python -m pip install -e .
@@ -622,6 +620,6 @@ The visible interface rests on several connected engineering stages:
 
 From local observations to shared discoveries—and from a working simulation to evidence people can inspect.
 
-[**Explore the app ↗**](https://circuits-recognized-emily-paul.trycloudflare.com/) · [**Listen to the fieldbook ↗**](https://swarmsar.vercel.app)
+[**Read & listen: SWARM SAR field guide ↗**](https://swarmsar.vercel.app)
 
 </div>

@@ -2,7 +2,6 @@
   "captured_at_utc": "2026-11-01T01:59:19.816428+00:00",
   "source_commit": "be57fd439905a1968c69fad0822f2fecacef22af",
   "method": "Unedited screenshots of local running app, headless Chrome, Playwright; software WebGL",
-  "public_demo": "https://circuits-recognized-emily-paul.trycloudflare.com/",
   "captures": [
     {
       "file": "mission-light.png",
@@ -82,5 +81,6 @@
       "sha256": "f47c6845dbcb2e185049bc2daa9ba0060798f3690f9eb754ab40dc4a6fce23e2"
     }
   ],
-  "browser_errors": []
+  "browser_errors": [],
+  "public_documentation": "https://swarmsar.vercel.app"
 }
